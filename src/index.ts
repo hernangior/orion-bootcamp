@@ -1,3 +1,5 @@
+// Exercicio 01
+
 // função que retorna a quantidade de vogais da palavra passada. 
 function getNumberOfVowels(word: string): number {
     const regexExpression = /[aeiouàáâãäåæçèéêëìíîïðòóôõöùúûüýÿ]/gi;
@@ -14,3 +16,5 @@ function showNumberOfWowels() {
     const numberOfVowels = getNumberOfVowels(inputWord.value);
     alert('A quantidade de vogais da palavra informada é: ' + numberOfVowels);
 }
+
+

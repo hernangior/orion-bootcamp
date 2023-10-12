@@ -23,17 +23,8 @@ async function getCommitHistory(owner: string, repo: string): Promise<any[]> {
     }
   }
 
-  let list = getCommitHistory('joaomarcus13', 'curso-angular');
-  /*
-  list.then(data => {
-    console.log(data);
-  }).catch(error => {
-    console.error(error);
-  });
-  */
-
-
   async function printAttributes() {
+    let list = getCommitHistory('joaomarcus13', 'curso-angular');
     try {
       const items = await list;
       for (const item of items) {

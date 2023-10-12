@@ -10,7 +10,7 @@ New Rizon's Orion bootcamp code repository
 
 ```typescript
 // inicializar projeto
-npm init -t
+npm init -y
 
 // instalar pacotes
 npm i [nome do pacote]

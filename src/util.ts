@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
+declare var $: any;
+
 async function getCommitHistory(owner: string, repo: string): Promise<any[]> {
     try {
       const response: AxiosResponse = await axios.get(
@@ -40,6 +42,40 @@ async function getCommitHistory(owner: string, repo: string): Promise<any[]> {
     }
   }
 
-  printAttributes();
+  //printAttributes();
+
+  async function test(){
+
+    let list = getCommitHistory('joaomarcus13', 'curso-angular');
+
+    let table = '';
+    let linha = '';
+    try {
+      const items = await list;
+      for (const item of items) {
+        linha = linha + '<tr>';
+        const { sha, message, author, date } = item;
+        console.log('SHA:'    , sha     ); linha = '<td>'+sha    +'</td>';
+        console.log('Message:', message ); linha = '<td>'+message+'</td>';
+        console.log('Author:' , author  ); linha = '<td>'+author +'</td>';
+        console.log('Date:'   , date    ); linha = '<td>'+date   +'</td>';
+        console.log('---'               );
+        linha = linha + '</tr>';
+        table = table + linha;
+        linha = '';
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    console.log('# ROTINA DE TESTE EXECUTANDO 18:50');
+    const divElement = document.getElementById('div-commits');
+    if (divElement) {
+      divElement.innerHTML = table;
+    }
+    
+    $('#test').modal('show');
+
+  }
   
 

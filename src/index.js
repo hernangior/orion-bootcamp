@@ -33,7 +33,9 @@ console.log("# Na palavra ["+word+"] temos ["+getNumberOfVowels(word)+"] vogais"
 function showNumberOfWowels() {
     let inputWord = document.getElementById('inputPalavra');
     let numberOfVowels = getNumberOfVowels(inputWord.value);
-    alert('A quantidade de vogais da palavra informada é: ' + numberOfVowels);
+    let output = 'A quantidade de vogais da palavra informada é: ' + numberOfVowels;
+    let outputWord = document.getElementById('output-palavra');
+    outputWord.value = output;
 }
 /*
 +-----------------------------------------------------------------------------------------------

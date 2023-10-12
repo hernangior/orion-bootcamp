@@ -35,16 +35,9 @@ function getCommitHistory(owner, repo) {
         }
     });
 }
-let list = getCommitHistory('joaomarcus13', 'curso-angular');
-/*
-list.then(data => {
-  console.log(data);
-}).catch(error => {
-  console.error(error);
-});
-*/
 function printAttributes() {
     return __awaiter(this, void 0, void 0, function* () {
+        let list = getCommitHistory('joaomarcus13', 'curso-angular');
         try {
             const items = yield list;
             for (const item of items) {

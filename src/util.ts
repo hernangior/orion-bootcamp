@@ -101,19 +101,20 @@ async function loadCommitsFromBranch(owner: string, repo: string, branch: string
 //loadCommitsFromBranch('joaomarcus13', 'curso-angular','main');
 
 // Função para carregar commits e exibir na div HTML
+// Função para carregar commits e exibir na div HTML
 async function loadCommits() {
-  const owner = 'joaomarcus13';
-  const repo = 'curso-angular';
-  const branch = 'main';
+  const owner = 'hernangior';
+  const repo = 'orion-bootcamp';
+  const branch = 'develop';
 
   try {
-    const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
-    const commits = response.data;
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
+    const commits = await response.json();
 
-    const commitsDiv = document.getElementById('commitsDiv');
-    if (commitsDiv) {
-      commitsDiv.innerHTML = ''; // Limpa o conteúdo atual da div
 
+  
+
+ 
       commits.forEach((commit: any) => {
         const { sha, commit: { message, author: { name, email } } } = commit;
         const commitInfo = `
@@ -123,10 +124,14 @@ async function loadCommits() {
           <p><strong>Email:</strong> ${email}</p>
           <hr>
         `;
-        commitsDiv.innerHTML += commitInfo; // Adiciona as informações do commit à div
+        
+        console.log(commitInfo);
+
       });
-    }
+
   } catch (error) {
     console.error('Erro ao carregar os commits:', error);
   }
 }
+
+loadCommits();

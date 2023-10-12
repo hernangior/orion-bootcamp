@@ -54,4 +54,10 @@ function printAttributes() {
         }
     });
 }
-printAttributes();
+//printAttributes();
+function test() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let list = getCommitHistory('joaomarcus13', 'curso-angular');
+        $('#test').modal('show');
+    });
+}

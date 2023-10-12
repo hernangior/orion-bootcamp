@@ -77,5 +77,25 @@ async function getCommitHistory(owner: string, repo: string): Promise<any[]> {
     $('#test').modal('show');
 
   }
-  
 
+
+async function loadCommitsFromBranch(owner: string, repo: string, branch: string) {
+  try {
+    const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
+    const commits = response.data;
+
+    // Mostra os commits no console
+    commits.forEach((commit: any) => {
+      const { sha, commit: { message, author: { name, email } } } = commit;
+      console.log('SHA:', sha);
+      console.log('Message:', message);
+      console.log('Author:', name);
+      console.log('Email:', email);
+      console.log('---');
+    });
+  } catch (error) {
+    console.error('Error loading commits:', error);
+  }
+}
+
+loadCommitsFromBranch('joaomarcus13', 'curso-angular','main');

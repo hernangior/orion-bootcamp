@@ -1,4 +1,3 @@
-    import axios, { AxiosResponse } from 'axios';
 
     /*
     +-----------------------------------------------------------------------------------------------
@@ -282,3 +281,7 @@
     console.log("- - -");
 
     // e) Demonstre todas as funções com o paradigma funcional e com o imperativo
+
+
+
+    

@@ -23,6 +23,23 @@ npx tsc
 
 //executar js
 node [arquivo js]
+
+//para usar github actions instale webpack
+npm install webpack webpack-cli --save-dev
+
+//crie o arquivo [webpack.config.js]´e insira:
+const path = require('path');
+module.exports = {
+  entry: './index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+};
+
+//para testar se tudo deu certo execute:
+npm run build
+
 ```
 
 ## Autores

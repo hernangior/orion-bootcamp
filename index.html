@@ -3,9 +3,6 @@
    <head>
       <title>Atividade 01</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-      <script src="src/index.js"></script>
-
    </head>
    <body>
       <div class="container mt-5">
@@ -25,6 +22,10 @@
                   <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
                   <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
                   <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="test()">Ver Histórico de Commits da Atividade 01</button>
+
+                  <button id="loadCommitsButton" onclick="loadCommits()">Carregar Commits</button>
+                  <div id="commitsDiv">xxx</div>
+
                </div>
             </div>
 
@@ -104,7 +105,10 @@
          </form>
       </div>
 
+      <script src="src/index.js"></script>
+
       <script src="src/util.js"></script>
+
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
    </body>

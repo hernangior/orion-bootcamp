@@ -24,16 +24,27 @@ npx tsc
 //executar js
 node [arquivo js]
 
-//para usar github actions instale webpack
+//para usar github actions instale webpack e babel
 npm install webpack webpack-cli --save-dev
+npm i babel-loader
 
 //crie o arquivo [webpack.config.js]´e insira:
 const path = require('path');
 module.exports = {
+  mode: 'production',
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
   },
 };
 

@@ -1,25 +1,38 @@
+ 
     /*
-    +
+    +-----------------------------------------------------------------------------------------------
     |
-    |   Exercicio 01
+    |   # Exercicio 01
     |
-    +
+    +-----------------------------------------------------------------------------------------------
     */ 
 
     // função que retorna a quantidade de vogais da palavra passada. 
     function getNumberOfVowels(word: string): number {
         let regexExpression = /[aeiouàáâãäåæçèéêëìíîïðòóôõöùúûüýÿ]/gi;
         let vowelsFound     = word.match(regexExpression);
-        return vowelsFound    ? vowelsFound.length : 0;
+        return vowelsFound  ? vowelsFound.length : 0;
     }
 
-    // a) Exemplo de uso com uma palavra recebida via parâmetro da função.
+    /*
+    +
+    |
+    |   a) Exemplo de uso com uma palavra recebida via parâmetro da função.
+    |
+    +
+    */ 
     /*
     let word = "Hernandez";
     console.log("# Na palavra ["+word+"] temos ["+getNumberOfVowels(word)+"] vogais");
     */
 
-    // b) Exemplo de uso com uma palavra recebida via input no formulário.
+    /*
+    +
+    |
+    |   b) Exemplo de uso com uma palavra recebida via input no formulário.
+    |
+    +
+    */ 
     function showNumberOfWowels() {
         let inputWord      = document.getElementById('inputPalavra') as HTMLInputElement;
         let numberOfVowels = getNumberOfVowels(inputWord.value);
@@ -27,13 +40,14 @@
     }
 
     /*
-    +
+    +-----------------------------------------------------------------------------------------------
     |
-    |   Exercicio 02
+    |   # Exercicio 02
     |
-    +
+    +-----------------------------------------------------------------------------------------------
     */ 
 
+    // array original com dados
     let lista : Array <Object> = [{
         "id": 1,
         "name": "Ada Lovelace",
@@ -55,10 +69,9 @@
         "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."
     }
     ];
-
     //console.log("# Lista de dados em array para Exercício 02:");
     //console.table(lista);
-
+    // classe de manipulação para facilitar o trabalho
     class Person {
         id  : number;
         name: string;
@@ -69,27 +82,42 @@
             this.bio  = bio;
         }
     }
-
+    // conversão de array para lista de objetos da classe Person
     function convertArrayToList(array: Array<any>): Array<Person> {
         return array.map(
                             (obj) => new Person(obj.id, obj.name, obj.bio)
                         );
     }
-
+    // efetiva mudança
     let newList = convertArrayToList(lista);
-
     //console.log("# Lista de objetos para Exercício 02:");
     //console.log(newList);
 
-    // a) Crie uma função que retorne a bio do id passado
-    // usando [paradigma funcional]
+    //---------------------------------------------------------------------------------------
+
+    /*
+    +
+    |
+    |   a) Crie uma função que retorne a bio do id passado
+    |   
+    |   [ PARADIGMA FUNCIONAL ]
+    |
+    +
+    */ 
     function functionalGetBioById(id: number): string {
         let person = newList.find((item) => item.id === id);
         return (person) ?  person.bio : '';
     }
+    // rotina para teste
     //console.log(functionalGetBioById(1));
 
-    // usando [paradigma imperativo]
+    /*
+    +
+    |
+    |   [ PARADIGMA IMPERATIVO ]
+    |
+    +
+    */ 
     function imperativeGetBioById(id: number): string{
         let result = '';
         for (let i = 0; i < lista.length; i++) {
@@ -107,15 +135,30 @@
     }
     //console.log(imperativeGetBioById(1));
 
-    // b) Crie uma função que retorne o name do id passado
-    // usando [paradigma funcional]
+    //---------------------------------------------------------------------------------------
+
+    /*
+    +
+    |
+    |   b) Crie uma função que retorne o name do id passado
+    |   
+    |   [ PARADIGMA FUNCIONAL ]
+    |
+    +
+    */ 
     function functionalGetNameById(id: number): string {
         let person = newList.find((item) => item.id === id);
         return (person) ?  person.name : '';
     }
     //console.log(functionalGetNameById(1));
 
-    // usando [paradigma imperativo]
+    /*
+    +
+    |
+    |   [ PARADIGMA IMPERATIVO ]
+    |
+    +
+    */ 
     function imperativeGetNameById(id: number): string{
         let result = '';
         for (let i = 0; i < lista.length; i++) {
@@ -133,8 +176,17 @@
     }
     //console.log(imperativeGetNameById(1));
 
-    // c) Crie uma função que apague um item da lista a partir de um id passado
-    // usando [paradigma funcional]
+    //---------------------------------------------------------------------------------------
+
+    /*
+    +
+    |
+    |   c) Crie uma função que apague um item da lista a partir de um id passado
+    |   
+    |   [ PARADIGMA FUNCIONAL ]
+    |
+    +
+    */ 
     function functionalDeleteItemById(id: number): void {
         let index = newList.findIndex((item) => item.id === id);
         (index !== -1) ? newList.splice(index, 1): '';
@@ -142,7 +194,13 @@
     //functionalDeleteItemById(2);
     //console.table(newList);
 
-    // usando [paradigma imperativo]
+    /*
+    +
+    |
+    |   [ PARADIGMA IMPERATIVO ]
+    |
+    +
+    */ 
     function imperativeDeleteItemById(id: number): void {
         for (let i = 0; i < newList.length; i++) {
           if (newList[i].id === id) {
@@ -154,8 +212,17 @@
     //imperativeDeleteItemById(1);
     //console.table(newList);
 
-    // d) Crie uma função que altere a bio ou o name a partir de um id passado
-    // usando [paradigma funcional]
+    //---------------------------------------------------------------------------------------
+
+    /*
+    +
+    |
+    |   d) Crie uma função que altere a bio ou o name a partir de um id passado
+    |   
+    |   [ PARADIGMA FUNCIONAL ]
+    |
+    +
+    */ 
     function functionalUpdateItemById(id: number, newContent: string, type: string): void {
         let item = newList.find((item) => item.id === id);
         if (item){
@@ -167,7 +234,13 @@
     //functionalUpdateItemById(1,"Hernandez","name");
     //console.table(newList);
 
-    // usando [paradigma imperativo]
+    /*
+    +
+    |
+    |   [ PARADIGMA IMPERATIVO ]
+    |
+    +
+    */ 
     function imperativeUpdateItemById(id: number, newContent: string, type: string): void {
         for (let i = 0; i < newList.length; i++) {
           if (newList[i].id === id) {

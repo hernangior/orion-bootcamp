@@ -4,9 +4,10 @@ New Rizon's Orion bootcamp code repository
 ## 1 - Criar uma função que retorne a quantidade de vogais da palavra passada.
 
 #### a) Dar um exemplo de uso com uma palavra recebida via parâmetro da função.
-###### concluído ✔
+
+###### concluído ✔ | aguardando PR ⚠
 #### b) Dar um exemplo de uso com uma palavra recebida via input no formulário.
-###### concluído ✔
+###### concluído ✔ | aguardando PR ⚠
 
 ____
 
@@ -21,15 +22,20 @@ let lista = new Array<Object> = [
 ```
 
 #### a) Crie uma função que retorne a bio do id passado
-###### concluído ✔
+
+###### concluído ✔ | aguardando PR ⚠
 #### b) Crie uma função que retorne o name do id passado
-###### concluído ✔
+
+###### concluído ✔ | aguardando PR ⚠
 #### c) Crie uma função que apague um item da lista a partir de um id passado
-###### concluído ✔
+
+###### concluído ✔ | aguardando PR ⚠
 #### d) Crie uma função que altere a bio ou o name a partir de um id passado
-###### concluído ✔
+
+###### concluído ✔ | aguardando PR ⚠
 #### e) Demonstre todas as funções com o paradigma funcional e com o imperativo
-###### concluído ✔
+
+###### concluído ✔ | aguardando PR ⚠
 
 ____
 

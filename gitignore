@@ -23,6 +23,8 @@ coverage
 .env
 
 # Dependency directory
+node_modules/
+.node_modules/
 /node_modules
 node_modules
 bower_components

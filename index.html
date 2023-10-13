@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Atividade 01</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-      <style rel="stylesheet">
+    <head>
+        <title>Atividade 01</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <style rel="stylesheet">
+            .modal-lg {
+                max-width: 95%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <form>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Atividade 01</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">1 - Criar uma função que retorne a quantidade de vogais da palavra passada.</p>
+                        <div class="form-group">
+                            <label for="inputPalavra">Digite uma palavra:</label>
+                            <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
+                        </div>
+                        <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
+                        <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
+                        <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
+                        <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="loadCommits('develop')">Ver Histórico de Commits da Atividade 01</button>
+                    </div>
+                </div>
 
-          .modal-lg{
-            max-width: 95%;
-          }
-
-      </style>
-   </head>
-   <body>
-      <div class="container mt-5">
-         <form>
-
-            <div class="card">
-               <div class="card-header">
-                  <h5 class="card-title">Atividade 01</h5>
-               </div>
-               <div class="card-body">
-                  <p class="card-text">1 - Criar uma função que retorne a quantidade de vogais da palavra passada.</p>
-                  <div class="form-group">
-                     <label for="inputPalavra">Digite uma palavra:</label>
-                     <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui">
-                  </div>
-                  <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
-                  <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                  <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
-                  <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="loadCommits()">Ver Histórico de Commits da Atividade 01</button>
-
-               </div>
-            </div>
-
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="codeModalLabel">Código</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                 </div>
-                 <div class="modal-body"></div>
-                 <pre>
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="codeModalLabel">Código</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body"></div>
+                            <pre>
                   <code>
     <b>// a) Exemplo de uso com uma palavra recebida via parâmetro da função.</b>
     // função que retorna a quantidade de vogais da palavra passada.
@@ -66,53 +62,43 @@
     }
                     </code>
                   </pre>
-                 </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-            <div class="modal fade bd-example-modal-lg-2" tabindex="-1" role="dialog" 
-   
-            aria-labelledby="myLargeModalLabel" aria-hidden="true" id="test">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="codeModalLabel">Histórico de commits</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                 </div>
-                 <div class="modal-body">
-
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Date</th>
-                        <th>Author</th>
-                        <th>Message</th>
-                        <th>SHA</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table-body">
-
-
-                    </tbody>
-                  </table>
-
-                 </div>
-                 </div>
+                <div class="modal fade bd-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="test">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="codeModalLabel">Histórico de commits</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Author</th>
+                                            <th>Message</th>
+                                            <th>SHA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body-task-01"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
+            </form>
+        </div>
 
-         </form>
-      </div>
+        <script src="src/index.js"></script>
 
-      <script src="src/index.js"></script>
+        <script src="src/util.js"></script>
 
-      <script src="src/util.js"></script>
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-   </body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </body>
 </html>

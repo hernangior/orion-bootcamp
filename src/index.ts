@@ -9,7 +9,7 @@
    */
 function getNumberOfVowels(word: string): number {
     const regexExpression = /[aeiouàáâãäåæçèéêëìíîïðòóôõöùúûüýÿ]/gi;
-    const vowelsFound     = word.match(regexExpression);
+    const vowelsFound     = word.toLowerCase().match(regexExpression);
     return vowelsFound    ? vowelsFound.length : 0;
 }
 

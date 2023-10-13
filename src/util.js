@@ -17,17 +17,24 @@ function loadCommits() {
         try {
             const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
             const commits = yield response.json();
+            let commitInfo = '';
             commits.forEach((commit) => {
-                const { sha, commit: { message, author: { name, email }, }, } = commit;
-                const commitInfo = `
-          <p><strong>SHA:</strong> ${sha}</p>
-          <p><strong>Message:</strong> ${message}</p>
-          <p><strong>Author:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <hr>
+                const { sha, commit: { message, author: { name, email, date } }, } = commit;
+                commitInfo += `
+          <tr>
+          <td>${date}</td>
+          <td>${name}</td>
+          <td>${message}</td>
+          <td>${sha}</td>
+          <tr>
         `;
-                console.log(commitInfo);
             });
+            console.log(commitInfo);
+            const divElement = document.getElementById('table-body');
+            if (divElement) {
+                divElement.innerHTML = commitInfo;
+                $('#test').modal('show');
+            }
         }
         catch (error) {
             console.error('Erro ao carregar os commits:', error);

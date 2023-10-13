@@ -2,39 +2,53 @@
 
 declare var $: any;
 
+// import axios, { AxiosResponse } from 'axios';
+
+declare var $: any;
+
 async function loadCommits() {
-  
+
   const owner = 'hernangior';
   const repo = 'orion-bootcamp';
   const branch = 'develop';
-
   try {
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`
     );
     const commits = await response.json();
 
+    let commitInfo = '';
+
     commits.forEach((commit: any) => {
       const {
         sha,
         commit: {
           message,
-          author: { name, email },
+          author: { name, email,date }
         },
       } = commit;
-      const commitInfo = `
-          <p><strong>SHA:</strong> ${sha}</p>
-          <p><strong>Message:</strong> ${message}</p>
-          <p><strong>Author:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <hr>
+        commitInfo += `
+          <tr>
+          <td>${date}</td>
+          <td>${name}</td>
+          <td>${message}</td>
+          <td>${sha}</td>
+          <tr>
         `;
 
-      console.log(commitInfo);
     });
+
+    console.log(commitInfo);
+    const divElement = document.getElementById('table-body');
+    if (divElement) {
+        divElement.innerHTML = commitInfo;
+         $('#test').modal('show');
+    }
+
   } catch (error) {
     console.error('Erro ao carregar os commits:', error);
   }
+  
 }
 
 // loadCommits();

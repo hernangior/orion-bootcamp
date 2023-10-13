@@ -11,6 +11,10 @@
           .modal-lg {
               max-width: 95%;
           }
+          .custom-box {
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          }
       </style>
 
     </head>
@@ -38,6 +42,7 @@
                           Criar uma função que retorne a quantidade de vogais da palavra passada.
                         </b>
                       </p>
+
                       <div class="form-group">
                           <label for="inputPalavra">Digite uma palavra:</label>
                           <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
@@ -46,8 +51,9 @@
                         <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;
                         Calcular
                       </button>
+                      
                       <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                      <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">
+                      <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-1">
                         <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;
                         Ver Código
                       </button>
@@ -56,16 +62,19 @@
 
                 <!-- [   C O D E    M O D A L    -   T A S K     0 1 ]-->
 
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal fade bd-example-modal-lg modal-code-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="codeModalLabel">Código</h5>
+                                <h5 class="modal-title" id="codeModalLabel" style="font-size:2rem"><i class="far fa-file-code fa-lg"></i>&nbsp;&nbsp;<b>
+                                  Código [ Typescript ] - Atividade 1
+                                </b>
+                              </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body"></div>
+                            <div class="modal-body" class="custom-box shadow">
                             <pre>
                               <code>
     <b>// a) Exemplo de uso com uma palavra recebida via parâmetro da função.</b>
@@ -89,6 +98,7 @@
     }
                               </code>
                             </pre>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -121,19 +131,15 @@
                                     </thead>
                                     <tbody id="table-body-task-01"></tbody>
                                 </table>
-
                                 <button type="button" class="btn btn-primary btn-lg btn-block" 
                                 data-dismiss="modal">
                                   <i class="far fa-window-close fa-lg"></i>&nbsp;&nbsp;
                                   Fechar
                                 </button>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </form>
 
             <hr>
@@ -146,11 +152,48 @@
               <div class="card" style="margin-top:2%;margin-bottom: 2%;">
                 <div class="card-header d-flex justify-content-between">
                   <h5 class="card-title" style="font-size:2rem;"><b>Atividade 02</b></h5>
-                  <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('feature/exercicio-02')">Ver Histórico de Commits da Atividade 02</button>
+                  <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('feature/exercicio-02')">
+                    <i class="fas fa-eye fa-lg"></i>&nbsp;&nbsp;
+                    Ver Histórico de Commits da Atividade 02
+                  </button>
+                </div>
+                <div class="card-body">
+                  <label>Dado o array:</label>
+                  <pre>
+                    <code>
+let lista : Array< Object >  = [{
+    "id": 1,
+    "name": "Ada Lovelace",
+    "bio": "Ada Lovelace, foi uma matemática e escritora inglesa 
+    reconhecida por ter escrito o primeiro algoritmo 
+    para ser processado por uma máquina"
+},
+{
+    "id": 2,
+    "name": "Alan Turing",
+    "bio": "Alan Turing foi um matemático, cientista da computação, 
+    lógico, criptoanalista, filósofo e biólogo teórico britânico, 
+    ele é amplamente considerado o pai da ciência da computação 
+    teórica e da inteligência artificial"
+},
+{
+    "id": 3,
+    "name": "Nikola Tesla",
+    "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico 
+    e engenheiro mecânico sérvio, mais conhecido por 
+    suas contribuições ao projeto do moderno sistema de 
+    fornecimento de eletricidade em corrente alternada."
+},
+{
+    "id": 4,
+    "name": "Nicolau Copérnico",
+    "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês 
+    que desenvolveu a teoria heliocêntrica do Sistema Solar."
+}];
+                    </code>
+                  </pre>
                 </div>
               </div>
-
-       
 
               <!--                             -->
               <!-- [   T A S K     0 2 / A   ] -->
@@ -163,12 +206,83 @@
                       </b>
                     </p>
                     <div class="form-group">
-                        <label for="inputPalavra">Digite uma palavra:</label>
-                        <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
+                        <label for="input-2-a">Digite uma palavra:</label>
+                        <input type="text" class="form-control" id="input-2-a" placeholder="Digite aqui" />
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
-                    <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2A()">
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                    </button>
+                    <textarea class="form-control" id="output-2-a" rows="3" placeholder="Resultado"></textarea>
+                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-a">
+                      <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;Ver Código
+                    </button>
+                </div>
+              </div>
+
+              <div class="modal fade bd-example-modal-lg modal-code-2-a" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="codeModalLabel" style="font-size:2rem"><i class="far fa-file-code fa-lg"></i>&nbsp;&nbsp;<b>
+                              Código [ Typescript ] - Atividade 2 - Letra A
+                            </b>
+                          </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" class="custom-box shadow">
+                        <pre>
+                          <code>
+  /*
+  +
+  |
+  |   a) Crie uma função que retorne a bio do id passado
+  |   
+  |   [ PARADIGMA FUNCIONAL ]
+  |
+  +
+  */ 
+  function functionalGetBioById(id: number): string {
+      let person = newList.find((item) => item.id === id);
+      return (person) ?  person.bio : '';
+  }
+  // rotina para teste
+  console.log("# a) Crie uma função que retorne a bio do id passado");
+  console.log("# paradigma funcional: ");
+  console.log(functionalGetBioById(1));
+  console.log("- - -");
+
+  /*
+  +
+  |
+  |   [ PARADIGMA IMPERATIVO ]
+  |
+  +
+  */ 
+  function imperativeGetBioById(id: number): string{
+      let result = '';
+      for (let i = 0; i < lista.length; i++) {
+          let item = lista[i] as 
+              { 
+                  id  : number, 
+                  name: string, 
+                  bio : string 
+              }; 
+          if (item.id === id) {
+              result = item.bio;
+          }
+      }
+      return result;
+  }
+  console.log("# paradigma imperativo: ");
+  console.log(imperativeGetBioById(1));
+  console.log("- - -");
+
+                          </code>
+                        </pre>
+                      </div>
+                    </div>
                 </div>
               </div>
 
@@ -183,12 +297,81 @@
                       </b>
                     </p>
                     <div class="form-group">
-                        <label for="inputPalavra">Digite uma palavra:</label>
-                        <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
+                        <label for="input-2-b">Digite uma palavra:</label>
+                        <input type="text" class="form-control" id="input-2-b" placeholder="Digite aqui" />
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
-                    <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2B()">
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                    </button>
+                    <textarea class="form-control" id="output-2-b" rows="3" placeholder="Resultado"></textarea>
+                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-b">
+                      <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;Ver Código
+                    </button>
+                </div>
+              </div>
+
+              <div class="modal fade bd-example-modal-lg modal-code-2-b" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="codeModalLabel" style="font-size:2rem"><i class="far fa-file-code fa-lg"></i>&nbsp;&nbsp;<b>
+                              Código [ Typescript ] - Atividade 2 - Letra B
+                            </b>
+                          </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" class="custom-box shadow">
+                        <pre>
+                          <code>
+  /*
+  +
+  |
+  |   b) Crie uma função que retorne o name do id passado
+  |   
+  |   [ PARADIGMA FUNCIONAL ]
+  |
+  +
+  */ 
+  function functionalGetNameById(id: number): string {
+      let person = newList.find((item) => item.id === id);
+      return (person) ?  person.name : '';
+  }
+  console.log("b) Crie uma função que retorne o name do id passado");
+  console.log("# paradigma funcional: ");
+  console.log(functionalGetNameById(1));
+  console.log("- - -");
+
+  /*
+  +
+  |
+  |   [ PARADIGMA IMPERATIVO ]
+  |
+  +
+  */ 
+  function imperativeGetNameById(id: number): string{
+      let result = '';
+      for (let i = 0; i < lista.length; i++) {
+          let item = lista[i] as 
+              { 
+                  id  : number, 
+                  name: string, 
+                  bio : string 
+              }; 
+          if (item.id === id) {
+              result = item.name;
+          }
+      }
+      return result;
+  }
+  console.log("# paradigma imperativo: ");
+  console.log(imperativeGetNameById(1));
+  console.log("- - -");
+                          </code>
+                        </pre>
+                      </div>
+                    </div>
                 </div>
               </div>
 
@@ -203,12 +386,76 @@
                       </b>
                     </p>
                     <div class="form-group">
-                        <label for="inputPalavra">Digite uma palavra:</label>
-                        <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
+                        <label for="input-2-c">Digite uma palavra:</label>
+                        <input type="text" class="form-control" id="input-2-c" placeholder="Digite aqui" />
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
-                    <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2C()">
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                    </button>
+                    <textarea class="form-control" id="output-2-c" rows="3" placeholder="Resultado"></textarea>
+                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-c">
+                      <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;Ver Código
+                    </button>
+                </div>
+              </div>
+
+              <div class="modal fade bd-example-modal-lg modal-code-2-c" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="codeModalLabel" style="font-size:2rem"><i class="far fa-file-code fa-lg"></i>&nbsp;&nbsp;<b>
+                              Código [ Typescript ] - Atividade 2 - Letra C
+                            </b>
+                          </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" class="custom-box shadow">
+                        <pre>
+                          <code>
+  /*
+  +
+  |
+  |   c) Crie uma função que apague um item da lista a partir de um id passado
+  |   
+  |   [ PARADIGMA FUNCIONAL ]
+  |
+  +
+  */ 
+  function functionalDeleteItemById(id: number): void {
+      let index = newList.findIndex((item) => item.id === id);
+      (index !== -1) ? newList.splice(index, 1): '';
+  }
+  console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
+  console.log("# paradigma funcional: ");
+  functionalDeleteItemById(2);
+  console.table(newList);
+  console.log("- - -");
+
+  /*
+  +
+  |
+  |   [ PARADIGMA IMPERATIVO ]
+  |
+  +
+  */ 
+  function imperativeDeleteItemById(id: number): void {
+      for (let i = 0; i < newList.length; i++) {
+        if (newList[i].id === id) {
+          newList.splice(i, 1);
+          break;
+        }
+      }
+    }
+  console.log("# paradigma imperativo: ");
+  imperativeDeleteItemById(1);
+  console.table(newList);
+  console.log("- - -");
+                          </code>
+                        </pre>
+                      </div>
+                    </div>
                 </div>
               </div>
 
@@ -226,9 +473,83 @@
                         <label for="inputPalavra">Digite uma palavra:</label>
                         <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                    </button>
                     <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
+                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-d">
+                      <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;Ver Código
+                    </button>
+                </div>
+              </div>
+
+              <div class="modal fade bd-example-modal-lg modal-code-2-d" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="codeModalLabel" style="font-size:2rem"><i class="far fa-file-code fa-lg"></i>&nbsp;&nbsp;<b>
+                              Código [ Typescript ] - Atividade 2 - Letra D
+                            </b>
+                          </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" class="custom-box shadow">
+                        <pre>
+                          <code>
+  /*
+  +
+  |
+  |   d) Crie uma função que altere a bio ou o name a partir de um id passado
+  |   
+  |   [ PARADIGMA FUNCIONAL ]
+  |
+  +
+  */ 
+  function functionalUpdateItemById(id: number, newContent: string, type: string): void {
+      let item = newList.find((item) => item.id === id);
+      if (item){
+        (type == "bio") ? item.bio  = newContent:'';
+        (type == "name")? item.name = newContent:'';
+      }
+  }
+  console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
+  console.log("# paradigma funcional: ");
+  functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
+  functionalUpdateItemById(3,"Hernandez","name");
+  console.table(newList);
+  console.log("- - -");
+
+  /*
+  +
+  |
+  |   [ PARADIGMA IMPERATIVO ]
+  |
+  +
+  */ 
+  function imperativeUpdateItemById(id: number, newContent: string, type: string): void {
+      for (let i = 0; i < newList.length; i++) {
+        if (newList[i].id === id) {
+          if (type == "bio") {
+            newList[i].bio = newContent;
+          }
+          if (type == "name") {
+            newList[i].name = newContent;
+          }
+          break;
+        }
+      }
+  }
+  console.log("# paradigma imperativo: ");
+  imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
+  imperativeUpdateItemById(4,"Giordano","name");
+  console.table(newList);
+  console.log("- - -");
+                          </code>
+                        </pre>
+                      </div>
+                    </div>
                 </div>
               </div>
 
@@ -242,13 +563,32 @@
                         e) Demonstre todas as funções com o paradigma funcional e com o imperativo
                       </b>
                     </p>
-                    <div class="form-group">
-                        <label for="inputPalavra">Digite uma palavra:</label>
-                        <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
+
+                    Todas as funções registradas constam versão alternativa dos métodos em paradigma Funcional.
+
+                </div>
+              </div>
+
+              <div class="modal fade bd-example-modal-lg modal-code-2-e" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="codeModalLabel" style="font-size:2rem"><i class="far fa-file-code fa-lg"></i>&nbsp;&nbsp;<b>
+                              Código [ Typescript ] - Atividade 2 - Letra E
+                            </b>
+                          </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" class="custom-box shadow">
+                        <pre>
+                          <code>
+
+                          </code>
+                        </pre>
+                      </div>
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
-                    <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                    <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
                 </div>
               </div>
 
@@ -264,7 +604,10 @@
             <div class="card" style="margin-top:2%;margin-bottom: 2%;">
               <div class="card-header d-flex justify-content-between">
                 <h5 class="card-title" style="font-size:2rem;"><b>Atividade 03</b></h5>
-                <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('feature/exercicio-03')">Ver Histórico de Commits da Atividade 03</button>
+                <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('feature/exercicio-03')">
+                  <i class="fas fa-eye fa-lg"></i>&nbsp;&nbsp;
+                  Ver Histórico de Commits da Atividade 03
+                </button>
               </div>
             </div>
 

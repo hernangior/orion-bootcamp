@@ -23,6 +23,12 @@ function loadCommits(branch) {
             //
             let commitInfo = '';
             let order = 1;
+            if (commits.length == 100) {
+                console.log("commits 1 == 100");
+                const responseTemp = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=${perPage}&page=${2}`);
+                let countCommitsTemp = (yield responseTemp.json()).length;
+                order = countCommitsTemp + 1;
+            }
             commits.forEach((commit) => {
                 const { sha, commit: { message, author: { name, email, date } }, } = commit;
                 commitInfo += `
@@ -36,11 +42,13 @@ function loadCommits(branch) {
         `;
                 order++;
             });
-            //console.log(commitInfo);
+            console.log("# valor do commits: ");
+            console.log(commitInfo);
             const divElement = document.getElementById('table-body-task-01');
             const divBranchName = document.getElementById('div-banch-name');
             const divBranchCount = document.getElementById('div-banch-count');
-            if (commits.length <= 100) {
+            if (commits.length < 100) {
+                console.log("commits < 100");
                 if (divElement && divBranchName && divBranchCount) {
                     divElement.innerHTML = commitInfo;
                     divBranchName.innerHTML = `
@@ -55,6 +63,7 @@ function loadCommits(branch) {
                 const response2 = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=${perPage}&page=${2}`);
                 let commits2 = (yield response2.json()).reverse();
                 let commitInfo2 = '';
+                order = 1;
                 //console.log(`A pagina 2 tem tamanho de [${commits2.length}] elementos`);
                 commits2.forEach((commit) => {
                     const { sha, commit: { message, author: { name, email, date } }, } = commit;
@@ -69,9 +78,18 @@ function loadCommits(branch) {
           `;
                     order++;
                 });
-                commitInfo2 += commitInfo;
+                console.log("# valor do commits 2: ");
+                console.log(commitInfo2);
+                commitInfo2 = commitInfo2 + commitInfo;
+                console.log("# valor dda quantidade [commits]: ");
+                console.log(commits.length);
+                console.log("# valor dda quantidade [commits 2]: ");
+                console.log(commits2.length);
                 if (divElement && divBranchName && divBranchCount) {
                     divElement.innerHTML = commitInfo2;
+                    divBranchName.innerHTML = `
+        <i class="fas fa-code-branch fa-lg"></i>&nbsp&nbspHistórico de commits - <b>branch [${branch}]</b>
+        `;
                     divBranchCount.innerHTML = `
         <i class="fas fa-list-ol fa-lg"></i>&nbsp&nbspQuantidade de commits realizados - <b>[${commits.length + commits2.length}]</b>
         `;

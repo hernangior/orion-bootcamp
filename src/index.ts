@@ -111,10 +111,22 @@
         return (person) ?  person.bio : '';
     }
     // rotina para teste
+    /*
     console.log("# a) Crie uma função que retorne a bio do id passado");
     console.log("# paradigma funcional: ");
     console.log(functionalGetBioById(1));
     console.log("- - -");
+    */
+
+    function calculateTask2A(){
+        let input      = parseInt((document.getElementById('input-2-a') as HTMLInputElement).value);
+        let result     = functionalGetBioById(input);
+        let output     = '';
+        (result) ? 
+            output     = `A Bio do ID informado como [${input}] é: ${result}`:
+            output     = `Não foi encontrada Bio do ID informado como [${input}]`;
+        (document.getElementById('output-2-a') as HTMLInputElement).value = output;
+    }
 
     /*
     +
@@ -138,9 +150,11 @@
         }
         return result;
     }
+    /*
     console.log("# paradigma imperativo: ");
     console.log(imperativeGetBioById(1));
     console.log("- - -");
+    */
 
     //---------------------------------------------------------------------------------------
 
@@ -157,10 +171,22 @@
         let person = newList.find((item) => item.id === id);
         return (person) ?  person.name : '';
     }
+    /*
     console.log("b) Crie uma função que retorne o name do id passado");
     console.log("# paradigma funcional: ");
     console.log(functionalGetNameById(1));
     console.log("- - -");
+    */
+
+    function calculateTask2B(){
+        let input      = parseInt((document.getElementById('input-2-b') as HTMLInputElement).value);
+        let result     = functionalGetNameById(input);
+        let output     = '';
+        (result) ? 
+            output     = `O nome do ID informado como [${input}] é: ${result}`:
+            output     = `Não foi encontrada Nome do ID informado como [${input}]`;
+        (document.getElementById('output-2-b') as HTMLInputElement).value = output;
+    }
 
     /*
     +
@@ -184,9 +210,11 @@
         }
         return result;
     }
+    /*
     console.log("# paradigma imperativo: ");
     console.log(imperativeGetNameById(1));
     console.log("- - -");
+    */
 
     //---------------------------------------------------------------------------------------
 
@@ -199,15 +227,37 @@
     |
     +
     */ 
-    function functionalDeleteItemById(id: number): void {
+    function functionalDeleteItemById(id: number): string {
         let index = newList.findIndex((item) => item.id === id);
-        (index !== -1) ? newList.splice(index, 1): '';
+        let result;
+        if (index !== -1){
+            newList.splice(index, 1);
+            result = 'success';
+        }else{
+            result = 'nada a excluir';
+        }
+        return result;
     }
+    /*
     console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
     console.log("# paradigma funcional: ");
     functionalDeleteItemById(2);
     console.table(newList);
     console.log("- - -");
+    */
+
+    function calculateTask2C(){
+        console.log('# inicio de execução de task 2 - c');
+        let input      = parseInt((document.getElementById('input-2-c') as HTMLInputElement).value);
+        console.log('# input: '+input);
+        let output ='';
+        (functionalDeleteItemById(input) == 'success')?
+        output     = `O item com ID informado como [${input}] foi removido da lista`:
+        output     = `Não existe na lista um item com o ID informado como [${input}]`;
+        console.log('# output: '+output);
+        (document.getElementById('output-2-c') as HTMLInputElement).value = output;
+        console.log('# conclusão de execução de task 2 - c');
+    }
 
     /*
     +
@@ -224,10 +274,12 @@
           }
         }
       }
+      /*
     console.log("# paradigma imperativo: ");
     imperativeDeleteItemById(1);
     console.table(newList);
     console.log("- - -");
+    */
 
     //---------------------------------------------------------------------------------------
 
@@ -247,12 +299,14 @@
           (type == "name")? item.name = newContent:'';
         }
     }
+    /*
     console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
     console.log("# paradigma funcional: ");
     functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
     functionalUpdateItemById(3,"Hernandez","name");
     console.table(newList);
     console.log("- - -");
+    */
 
     /*
     +
@@ -274,11 +328,13 @@
           }
         }
     }
+    /*
     console.log("# paradigma imperativo: ");
     imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
     imperativeUpdateItemById(4,"Giordano","name");
     console.table(newList);
     console.log("- - -");
+    */
 
     // e) Demonstre todas as funções com o paradigma funcional e com o imperativo
 

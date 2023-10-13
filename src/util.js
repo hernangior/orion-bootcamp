@@ -1,4 +1,5 @@
 "use strict";
+// import axios, { AxiosResponse } from 'axios';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,18 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const axios_1 = __importDefault(require("axios"));
 function getCommitHistory(owner, repo) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`https://api.github.com/repos/${owner}/${repo}/commits`);
-            //console.log(response);
+            const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits`);
+            const data = yield response.json();
             if (response.status === 200) {
-                return response.data.map((commit) => ({
+                return data.map((commit) => ({
                     sha: commit.sha,
                     message: commit.commit.message,
                     author: commit.commit.author.name,
@@ -93,11 +89,12 @@ function test() {
 function loadCommitsFromBranch(owner, repo, branch) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
-            const commits = response.data;
+            const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
+            const data = yield response.json();
+            const commits = data;
             // Mostra os commits no console
             commits.forEach((commit) => {
-                const { sha, commit: { message, author: { name, email } } } = commit;
+                const { sha, commit: { message, author: { name, email }, }, } = commit;
                 console.log('SHA:', sha);
                 console.log('Message:', message);
                 console.log('Author:', name);
@@ -122,7 +119,7 @@ function loadCommits() {
             const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
             const commits = yield response.json();
             commits.forEach((commit) => {
-                const { sha, commit: { message, author: { name, email } } } = commit;
+                const { sha, commit: { message, author: { name, email }, }, } = commit;
                 const commitInfo = `
           <p><strong>SHA:</strong> ${sha}</p>
           <p><strong>Message:</strong> ${message}</p>
@@ -138,4 +135,4 @@ function loadCommits() {
         }
     });
 }
-loadCommits();
+// loadCommits();

@@ -19,7 +19,7 @@ console.log('# teste executado par a palavra: "Hernandez"');
 console.log(`A quantidade de vogais da palavra informada é: [${getNumberOfVowels("Hernandez")}]`);
 // b) Exemplo de uso com uma palavra recebida via input no formulário.
 function showNumberOfVowels() {
-    const inputWord = document.getElementById("inputPalavra");
+    const inputWord = document.getElementById("input-task-1");
     const numberOfVowels = getNumberOfVowels(inputWord.value);
     let divOutput = document.getElementById("div-output");
     if (divOutput) {

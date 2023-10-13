@@ -261,10 +261,15 @@ console.log("- - -");
 */
 function functionalUpdateItemById(id, newContent, type) {
     let item = newList.find((item) => item.id === id);
+    let result = '';
     if (item) {
         (type == "bio") ? item.bio = newContent : '';
         (type == "name") ? item.name = newContent : '';
     }
+    else {
+        result = 'not found';
+    }
+    return result;
 }
 /*
 console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
@@ -274,6 +279,26 @@ functionalUpdateItemById(3,"Hernandez","name");
 console.table(newList);
 console.log("- - -");
 */
+function calculateTask2DBio() {
+    let inputId = parseInt(document.getElementById('input-2-d-id').value);
+    let inputText = document.getElementById('input-2-d-text').value;
+    let result = functionalUpdateItemById(inputId, inputText, 'bio');
+    let output = '';
+    (result == 'not found') ?
+        output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]` :
+        output = `A Bio referente ao ID informado como [${inputId}] foi alterada!`;
+    document.getElementById('output-2-d').value = output;
+}
+function calculateTask2DName() {
+    let inputId = parseInt(document.getElementById('input-2-d-id').value);
+    let inputText = document.getElementById('input-2-d-text').value;
+    let result = functionalUpdateItemById(inputId, inputText, 'name');
+    let output = '';
+    (result == 'not found') ?
+        output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]` :
+        output = `O Name referente ao ID informado como [${inputId}] foi alterada!`;
+    document.getElementById('output-2-d').value = output;
+}
 /*
 +
 |

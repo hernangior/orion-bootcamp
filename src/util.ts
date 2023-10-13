@@ -8,13 +8,15 @@ declare var $: any;
 
 async function loadCommits(branch: string) {
 
-  const owner = 'hernangior';
-  const repo = 'orion-bootcamp';
+  const owner   = 'hernangior';
+  const repo    = 'orion-bootcamp';
+  const perPage = 1000;
 
   try {
+
     const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`
-    );
+      `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=${perPage}`);
+
     let commits = await response.json();
     commits = commits.reverse();
 

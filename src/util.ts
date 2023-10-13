@@ -6,11 +6,11 @@ declare var $: any;
 
 declare var $: any;
 
-async function loadCommits() {
+async function loadCommits(branch: string) {
 
   const owner = 'hernangior';
   const repo = 'orion-bootcamp';
-  const branch = 'develop';
+
   try {
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`
@@ -39,7 +39,7 @@ async function loadCommits() {
     });
 
     console.log(commitInfo);
-    const divElement = document.getElementById('table-body');
+    const divElement = document.getElementById('table-body-task-01');
     if (divElement) {
         divElement.innerHTML = commitInfo;
          $('#test').modal('show');

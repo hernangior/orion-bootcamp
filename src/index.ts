@@ -238,6 +238,7 @@
         }
         return result;
     }
+
     /*
     console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
     console.log("# paradigma funcional: ");
@@ -292,12 +293,16 @@
     |
     +
     */ 
-    function functionalUpdateItemById(id: number, newContent: string, type: string): void {
+    function functionalUpdateItemById(id: number, newContent: string, type: string): string {
         let item = newList.find((item) => item.id === id);
+        let result = '';
         if (item){
           (type == "bio") ? item.bio  = newContent:'';
           (type == "name")? item.name = newContent:'';
+        }else{
+            result = 'not found'
         }
+        return result;
     }
     /*
     console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
@@ -307,6 +312,28 @@
     console.table(newList);
     console.log("- - -");
     */
+
+    function calculateTask2DBio(){
+        let inputId      = parseInt((document.getElementById('input-2-d-id') as HTMLInputElement).value);
+        let inputText      = (document.getElementById('input-2-d-text') as HTMLInputElement).value;
+        let result     = functionalUpdateItemById(inputId, inputText, 'bio');
+        let output     = '';
+        (result == 'not found') ? 
+            output     = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`:
+            output     = `A Bio referente ao ID informado como [${inputId}] foi alterada!`;
+        (document.getElementById('output-2-d') as HTMLInputElement).value = output;
+    }
+
+    function calculateTask2DName(){
+        let inputId      = parseInt((document.getElementById('input-2-d-id') as HTMLInputElement).value);
+        let inputText      = (document.getElementById('input-2-d-text') as HTMLInputElement).value;
+        let result     = functionalUpdateItemById(inputId, inputText, 'name');
+        let output     = '';
+        (result == 'not found') ? 
+            output     = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`:
+            output     = `O Name referente ao ID informado como [${inputId}] foi alterada!`;
+        (document.getElementById('output-2-d') as HTMLInputElement).value = output;
+    }
 
     /*
     +

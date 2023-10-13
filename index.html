@@ -2,12 +2,17 @@
 <html>
     <head>
         <title>Atividade 01</title>
+        
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
+
         <style rel="stylesheet">
-            .modal-lg {
-                max-width: 95%;
-            }
-        </style>
+          .modal-lg {
+              max-width: 95%;
+          }
+      </style>
+
     </head>
     <body>
         <div class="container mt-5">
@@ -17,8 +22,12 @@
                 <!--                             -->
                 <div class="card" style="margin-top:2%;margin-bottom: 2%;">
                   <div class="card-header d-flex justify-content-between">
-                    <h5 class="card-title">Atividade 01</h5>
-                    <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('develop')">Ver Histórico de Commits da Atividade 01</button>
+                    <h5 class="card-title" style="font-size:2rem;"><b>Atividade 01</b></h5>
+                    <button type="button" class="btn btn-primary ml-auto" 
+                    onclick="loadCommits('feature/exercicio-01')">
+                    <i class="fas fa-eye fa-lg"></i>&nbsp;&nbsp;
+                    Ver Histórico de Commits da Atividade 01
+                  </button>
                   </div>
                 </div>
 
@@ -26,16 +35,22 @@
                   <div class="card-body">
                       <p class="card-text">
                         <b>
-                          1 - Criar uma função que retorne a quantidade de vogais da palavra passada.
+                          Criar uma função que retorne a quantidade de vogais da palavra passada.
                         </b>
                       </p>
                       <div class="form-group">
                           <label for="inputPalavra">Digite uma palavra:</label>
                           <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
                       </div>
-                      <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
+                      <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">
+                        <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;
+                        Calcular
+                      </button>
                       <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
-                      <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
+                      <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">
+                        <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;
+                        Ver Código
+                      </button>
                   </div>
               </div>
 
@@ -85,7 +100,10 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="codeModalLabel">Histórico de commits</h5>
+                                <h5 class="modal-title" id="codeModalLabel">
+                                  <div id="div-banch-name" style="margin-bottom:1%"></div>
+                                  <div id="div-banch-count"></div>
+                                </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -94,6 +112,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th>Nº.</th>
                                             <th>Date</th>
                                             <th>Author</th>
                                             <th>Message</th>
@@ -102,7 +121,15 @@
                                     </thead>
                                     <tbody id="table-body-task-01"></tbody>
                                 </table>
+
+                                <button type="button" class="btn btn-primary btn-lg btn-block" 
+                                data-dismiss="modal">
+                                  <i class="far fa-window-close fa-lg"></i>&nbsp;&nbsp;
+                                  Fechar
+                                </button>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -118,8 +145,8 @@
               <!--                             -->
               <div class="card" style="margin-top:2%;margin-bottom: 2%;">
                 <div class="card-header d-flex justify-content-between">
-                  <h5 class="card-title">Atividade 02</h5>
-                  <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('develop')">Ver Histórico de Commits da Atividade 02</button>
+                  <h5 class="card-title" style="font-size:2rem;"><b>Atividade 02</b></h5>
+                  <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('feature/exercicio-02')">Ver Histórico de Commits da Atividade 02</button>
                 </div>
               </div>
 
@@ -225,13 +252,29 @@
                 </div>
               </div>
 
-              <div class="card" style="margin-top:2%;margin-bottom: 2%;">
-                <div class="card-body">
-                  <button type="button" class="btn btn-primary btn-lg btn-block" onclick="scrollToTop()">Voltar ao Topo</button>
-                </div>
+          </form>
+
+          <hr>
+
+          <form>
+
+            <!--                             -->
+            <!-- [     T A S K     0 3     ] -->
+            <!--                             -->
+            <div class="card" style="margin-top:2%;margin-bottom: 2%;">
+              <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title" style="font-size:2rem;"><b>Atividade 03</b></h5>
+                <button type="button" class="btn btn-primary ml-auto" onclick="loadCommits('feature/exercicio-03')">Ver Histórico de Commits da Atividade 03</button>
               </div>
+            </div>
 
           </form>
+
+          <div class="card" style="margin-top:2%;margin-bottom: 2%;">
+            <div class="card-body">
+              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="scrollToTop()">Voltar ao Topo</button>
+            </div>
+          </div>
 
         </div>
 

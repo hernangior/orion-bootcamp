@@ -10,15 +10,19 @@
  */
 function getNumberOfVowels(word) {
     const regexExpression = /[aeiouàáâãäåæçèéêëìíîïðòóôõöùúûüýÿ]/gi;
-    const vowelsFound = word.match(regexExpression);
+    const vowelsFound = word.toLowerCase().match(regexExpression);
     return vowelsFound ? vowelsFound.length : 0;
 }
 // a) Exemplo de uso com uma palavra recebida via parâmetro da função.
-console.log(getNumberOfVowels("Hernandez"));
+console.log("# função para contagem de vogais de uma palavra dada");
+console.log('# teste executado par a palavra: "Hernandez"');
+console.log(`A quantidade de vogais da palavra informada é: [${getNumberOfVowels("Hernandez")}]`);
 // b) Exemplo de uso com uma palavra recebida via input no formulário.
 function showNumberOfVowels() {
-    const inputWord = document.getElementById('inputPalavra');
+    const inputWord = document.getElementById("inputPalavra");
     const numberOfVowels = getNumberOfVowels(inputWord.value);
-    let divOutput = document.getElementById('div-output');
-    (divOutput) ? divOutput.innerHTML = `# A quantidade de vogais é: ${numberOfVowels.toString()}` : 'erro ao calcular';
+    let divOutput = document.getElementById("div-output");
+    if (divOutput) {
+        divOutput.innerHTML = `# A quantidade de vogais é: ${numberOfVowels.toString()}`;
+    }
 }

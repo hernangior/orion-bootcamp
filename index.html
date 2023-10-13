@@ -3,6 +3,13 @@
    <head>
       <title>Atividade 01</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <style rel="stylesheet">
+
+          .modal-lg{
+            max-width: 95%;
+          }
+
+      </style>
    </head>
    <body>
       <div class="container mt-5">
@@ -21,10 +28,7 @@
                   <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">Calcular</button>
                   <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
                   <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Código</button>
-                  <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="#">Ver Histórico de Commits da Atividade 01</button>
-
-                  <button id="loadCommitsButton" onclick="loadCommits()">Carregar Commits</button>
-                  <div id="commitsDiv">xxx</div>
+                  <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="loadCommits()">Ver Histórico de Commits da Atividade 01</button>
 
                </div>
             </div>
@@ -67,11 +71,13 @@
               </div>
             </div>
 
-            <div class="modal fade bd-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="test">
+            <div class="modal fade bd-example-modal-lg-2" tabindex="-1" role="dialog" 
+   
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" id="test">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="codeModalLabel">Lista de commits</h5>
+                    <h5 class="modal-title" id="codeModalLabel">Histórico de commits</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -81,17 +87,14 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>SHA</th>
-                        <th>Message</th>
-                        <th>Author</th>
                         <th>Date</th>
+                        <th>Author</th>
+                        <th>Message</th>
+                        <th>SHA</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="table-body">
 
-                      <div id="div-commits">
-
-                      </div>
 
                     </tbody>
                   </table>

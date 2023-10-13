@@ -9,11 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function loadCommits() {
+function loadCommits(branch) {
     return __awaiter(this, void 0, void 0, function* () {
         const owner = 'hernangior';
         const repo = 'orion-bootcamp';
-        const branch = 'develop';
         try {
             const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
             const commits = yield response.json();
@@ -30,7 +29,7 @@ function loadCommits() {
         `;
             });
             console.log(commitInfo);
-            const divElement = document.getElementById('table-body');
+            const divElement = document.getElementById('table-body-task-01');
             if (divElement) {
                 divElement.innerHTML = commitInfo;
                 $('#test').modal('show');

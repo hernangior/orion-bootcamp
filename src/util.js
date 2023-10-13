@@ -13,8 +13,9 @@ function loadCommits(branch) {
     return __awaiter(this, void 0, void 0, function* () {
         const owner = 'hernangior';
         const repo = 'orion-bootcamp';
+        const perPage = 1000;
         try {
-            const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`);
+            const response = yield fetch(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=${perPage}`);
             let commits = yield response.json();
             commits = commits.reverse();
             let commitInfo = '';

@@ -15,9 +15,11 @@ async function loadCommits(branch: string) {
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`
     );
-    const commits = await response.json();
+    let commits = await response.json();
+    commits = commits.reverse();
 
     let commitInfo = '';
+    let order = 1;
 
     commits.forEach((commit: any) => {
       const {
@@ -29,19 +31,28 @@ async function loadCommits(branch: string) {
       } = commit;
         commitInfo += `
           <tr>
+          <td>${order}</td>
           <td>${date}</td>
           <td>${name}</td>
           <td>${message}</td>
           <td>${sha}</td>
           <tr>
         `;
-
+        order ++;
     });
 
     console.log(commitInfo);
-    const divElement = document.getElementById('table-body-task-01');
-    if (divElement) {
-        divElement.innerHTML = commitInfo;
+    const divElement    = document.getElementById('table-body-task-01');
+    const divBranchName = document.getElementById('div-banch-name');
+    const divBranchCount = document.getElementById('div-banch-count');
+    if (divElement && divBranchName && divBranchCount) {
+        divElement.innerHTML    = commitInfo;
+        divBranchName.innerHTML = `
+        <i class="fas fa-code-branch fa-lg"></i>&nbsp&nbspHistórico de commits - <b>branch [${branch}]</b>
+        `;
+        divBranchCount.innerHTML = `
+        <i class="fas fa-list-ol fa-lg"></i>&nbsp&nbspQuantidade de commits realizados - <b>[${commits.length}]</b>
+        `;
          $('#test').modal('show');
     }
 

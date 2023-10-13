@@ -206,11 +206,11 @@ let lista : Array< Object >  = [{
                       </b>
                     </p>
                     <div class="form-group">
-                        <label for="input-2-a">Digite uma palavra:</label>
+                        <label for="input-2-a">Informe o Id:</label>
                         <input type="text" class="form-control" id="input-2-a" placeholder="Digite aqui" />
                     </div>
                     <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2A()">
-                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Localizar Bio
                     </button>
                     <textarea class="form-control" id="output-2-a" rows="3" placeholder="Resultado"></textarea>
                     <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-a">
@@ -234,6 +234,8 @@ let lista : Array< Object >  = [{
                         <div class="modal-body" class="custom-box shadow">
                         <pre>
                           <code>
+
+
   /*
   +
   |
@@ -248,10 +250,22 @@ let lista : Array< Object >  = [{
       return (person) ?  person.bio : '';
   }
   // rotina para teste
+  /*
   console.log("# a) Crie uma função que retorne a bio do id passado");
   console.log("# paradigma funcional: ");
   console.log(functionalGetBioById(1));
   console.log("- - -");
+  */
+
+  function calculateTask2A(){
+      let input      = parseInt((document.getElementById('input-2-a') as HTMLInputElement).value);
+      let result     = functionalGetBioById(input);
+      let output     = '';
+      (result) ? 
+          output     = `A Bio do ID informado como [${input}] é: ${result}`:
+          output     = `Não foi encontrada Bio do ID informado como [${input}]`;
+      (document.getElementById('output-2-a') as HTMLInputElement).value = output;
+  }
 
   /*
   +
@@ -275,9 +289,11 @@ let lista : Array< Object >  = [{
       }
       return result;
   }
+  /*
   console.log("# paradigma imperativo: ");
   console.log(imperativeGetBioById(1));
   console.log("- - -");
+  */
 
                           </code>
                         </pre>
@@ -297,11 +313,11 @@ let lista : Array< Object >  = [{
                       </b>
                     </p>
                     <div class="form-group">
-                        <label for="input-2-b">Digite uma palavra:</label>
+                        <label for="input-2-b">Informe o Id:</label>
                         <input type="text" class="form-control" id="input-2-b" placeholder="Digite aqui" />
                     </div>
                     <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2B()">
-                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Localizar Name
                     </button>
                     <textarea class="form-control" id="output-2-b" rows="3" placeholder="Resultado"></textarea>
                     <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-b">
@@ -325,6 +341,7 @@ let lista : Array< Object >  = [{
                         <div class="modal-body" class="custom-box shadow">
                         <pre>
                           <code>
+
   /*
   +
   |
@@ -338,10 +355,22 @@ let lista : Array< Object >  = [{
       let person = newList.find((item) => item.id === id);
       return (person) ?  person.name : '';
   }
+  /*
   console.log("b) Crie uma função que retorne o name do id passado");
   console.log("# paradigma funcional: ");
   console.log(functionalGetNameById(1));
   console.log("- - -");
+  */
+
+  function calculateTask2B(){
+      let input      = parseInt((document.getElementById('input-2-b') as HTMLInputElement).value);
+      let result     = functionalGetNameById(input);
+      let output     = '';
+      (result) ? 
+          output     = `O nome do ID informado como [${input}] é: ${result}`:
+          output     = `Não foi encontrada Nome do ID informado como [${input}]`;
+      (document.getElementById('output-2-b') as HTMLInputElement).value = output;
+  }
 
   /*
   +
@@ -365,9 +394,12 @@ let lista : Array< Object >  = [{
       }
       return result;
   }
+  /*
   console.log("# paradigma imperativo: ");
   console.log(imperativeGetNameById(1));
   console.log("- - -");
+  */
+
                           </code>
                         </pre>
                       </div>
@@ -386,11 +418,11 @@ let lista : Array< Object >  = [{
                       </b>
                     </p>
                     <div class="form-group">
-                        <label for="input-2-c">Digite uma palavra:</label>
+                        <label for="input-2-c">Informe o Id:</label>
                         <input type="text" class="form-control" id="input-2-c" placeholder="Digite aqui" />
                     </div>
                     <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2C()">
-                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Apagar
                     </button>
                     <textarea class="form-control" id="output-2-c" rows="3" placeholder="Resultado"></textarea>
                     <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-c">
@@ -414,6 +446,7 @@ let lista : Array< Object >  = [{
                         <div class="modal-body" class="custom-box shadow">
                         <pre>
                           <code>
+  
   /*
   +
   |
@@ -423,15 +456,38 @@ let lista : Array< Object >  = [{
   |
   +
   */ 
-  function functionalDeleteItemById(id: number): void {
+  function functionalDeleteItemById(id: number): string {
       let index = newList.findIndex((item) => item.id === id);
-      (index !== -1) ? newList.splice(index, 1): '';
+      let result;
+      if (index !== -1){
+          newList.splice(index, 1);
+          result = 'success';
+      }else{
+          result = 'nada a excluir';
+      }
+      return result;
   }
+
+  /*
   console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
   console.log("# paradigma funcional: ");
   functionalDeleteItemById(2);
   console.table(newList);
   console.log("- - -");
+  */
+
+  function calculateTask2C(){
+      console.log('# inicio de execução de task 2 - c');
+      let input      = parseInt((document.getElementById('input-2-c') as HTMLInputElement).value);
+      console.log('# input: '+input);
+      let output ='';
+      (functionalDeleteItemById(input) == 'success')?
+      output     = `O item com ID informado como [${input}] foi removido da lista`:
+      output     = `Não existe na lista um item com o ID informado como [${input}]`;
+      console.log('# output: '+output);
+      (document.getElementById('output-2-c') as HTMLInputElement).value = output;
+      console.log('# conclusão de execução de task 2 - c');
+  }
 
   /*
   +
@@ -448,10 +504,13 @@ let lista : Array< Object >  = [{
         }
       }
     }
+    /*
   console.log("# paradigma imperativo: ");
   imperativeDeleteItemById(1);
   console.table(newList);
   console.log("- - -");
+  */
+
                           </code>
                         </pre>
                       </div>
@@ -469,14 +528,29 @@ let lista : Array< Object >  = [{
                         d) Crie uma função que altere a bio ou o name a partir de um id passado
                       </b>
                     </p>
+
                     <div class="form-group">
-                        <label for="inputPalavra">Digite uma palavra:</label>
-                        <input type="text" class="form-control" id="inputPalavra" placeholder="Digite aqui" />
+                        <label for="input-2-d-id">Informe o Id:</label>
+                        <input type="text" class="form-control" id="input-2-d-id" placeholder="Digite aqui" />
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="showNumberOfWowels()">
-                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Calcular
+
+                    <div class="form-group">
+                      <label for="input-2-d-text">Informe o novo texto para o campo:</label>
+                      <input type="text" class="form-control" id="input-2-d-text" placeholder="Digite aqui" />
+                  </div>
+
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2DBio()" 
+                      id="calc-task-2-bio" name="calc-task-2-bio">
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Alterar Bio
                     </button>
-                    <textarea class="form-control" id="output-palavra" rows="3" placeholder="Resultado"></textarea>
+
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 2%;" onclick="calculateTask2DName()" 
+                      id="calc-task-2-name" name="calc-task-2-name">
+                      <i class="fas fa-bolt fa-lg"></i>&nbsp;&nbsp;Alterar Name
+                    </button>
+
+                    <textarea class="form-control" id="output-2-d" rows="3" placeholder="Resultado"></textarea>
+
                     <button type="button" class="btn btn-primary" style="margin-top: 2%;" data-toggle="modal" data-target=".modal-code-2-d">
                       <i class="fas fa-code fa-lg"></i>&nbsp;&nbsp;Ver Código
                     </button>
@@ -498,6 +572,7 @@ let lista : Array< Object >  = [{
                         <div class="modal-body" class="custom-box shadow">
                         <pre>
                           <code>
+
   /*
   +
   |
@@ -507,19 +582,47 @@ let lista : Array< Object >  = [{
   |
   +
   */ 
-  function functionalUpdateItemById(id: number, newContent: string, type: string): void {
+  function functionalUpdateItemById(id: number, newContent: string, type: string): string {
       let item = newList.find((item) => item.id === id);
+      let result = '';
       if (item){
         (type == "bio") ? item.bio  = newContent:'';
         (type == "name")? item.name = newContent:'';
+      }else{
+          result = 'not found'
       }
+      return result;
   }
+  /*
   console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
   console.log("# paradigma funcional: ");
   functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
   functionalUpdateItemById(3,"Hernandez","name");
   console.table(newList);
   console.log("- - -");
+  */
+
+  function calculateTask2DBio(){
+      let inputId      = parseInt((document.getElementById('input-2-d-id') as HTMLInputElement).value);
+      let inputText      = (document.getElementById('input-2-d-text') as HTMLInputElement).value;
+      let result     = functionalUpdateItemById(inputId, inputText, 'bio');
+      let output     = '';
+      (result == 'not found') ? 
+          output     = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`:
+          output     = `A Bio referente ao ID informado como [${inputId}] foi alterada!`;
+      (document.getElementById('output-2-d') as HTMLInputElement).value = output;
+  }
+
+  function calculateTask2DName(){
+      let inputId      = parseInt((document.getElementById('input-2-d-id') as HTMLInputElement).value);
+      let inputText      = (document.getElementById('input-2-d-text') as HTMLInputElement).value;
+      let result     = functionalUpdateItemById(inputId, inputText, 'name');
+      let output     = '';
+      (result == 'not found') ? 
+          output     = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`:
+          output     = `O Name referente ao ID informado como [${inputId}] foi alterada!`;
+      (document.getElementById('output-2-d') as HTMLInputElement).value = output;
+  }
 
   /*
   +
@@ -541,11 +644,14 @@ let lista : Array< Object >  = [{
         }
       }
   }
+  /*
   console.log("# paradigma imperativo: ");
   imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
   imperativeUpdateItemById(4,"Giordano","name");
   console.table(newList);
   console.log("- - -");
+  */
+
                           </code>
                         </pre>
                       </div>

@@ -1,11 +1,4 @@
 "use strict";
-/*
-    +-----------------------------------------------------------------------------------------------
-    |
-    |   # Exercicio 01
-    |
-    +-----------------------------------------------------------------------------------------------
-    */
 /**
  * Função que retorna a quantidade de vogais de uma palavra informada
  *
@@ -20,24 +13,6 @@ function getNumberOfVowels(word) {
     let vowelsFound = word.toLowerCase().match(regexExpression);
     return vowelsFound ? vowelsFound.length : 0;
 }
-/*
-      +
-      |
-      |   a) Exemplo de uso com uma palavra recebida via parâmetro da função.
-      |
-      +
-      */
-/*
-      let word = "Hernandez";
-      console.log("# Na palavra ["+word+"] temos ["+getNumberOfVowels(word)+"] vogais");
-      */
-/*
-      +
-      |
-      |   b) Exemplo de uso com uma palavra recebida via input no formulário.
-      |
-      +
-      */
 /**
  *
  * Função que retorna a quantidade de vogais de uma palavra informada
@@ -55,13 +30,6 @@ function showNumberOfWowels() {
     let outputWord = document.getElementById("output-palavra");
     outputWord.value = output;
 }
-/*
-      +-----------------------------------------------------------------------------------------------
-      |
-      |   # Exercicio 02
-      |
-      +-----------------------------------------------------------------------------------------------
-      */
 // array original com dados
 let lista = [
     {
@@ -85,8 +53,6 @@ let lista = [
         bio: "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar.",
     },
 ];
-//console.log("# Lista de dados em array para Exercício 02:");
-//console.table(lista);
 // classe de manipulação para facilitar o trabalho
 class Person {
     constructor(id, name, bio) {
@@ -109,18 +75,6 @@ function convertArrayToList(array) {
 }
 // efetiva mudança
 let newList = convertArrayToList(lista);
-//console.log("# Lista de objetos para Exercício 02:");
-//console.log(newList);
-//---------------------------------------------------------------------------------------
-/*
-      +
-      |
-      |   a) Crie uma função que retorne a bio do id passado
-      |
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
 /**
  * Função para retornar a bio do id passado
  * usando o paradigma funcional
@@ -134,13 +88,6 @@ function functionalGetBioById(id) {
     let person = newList.find((item) => item.id === id);
     return person ? person.bio : "";
 }
-// rotina para teste
-/*
-      console.log("# a) Crie uma função que retorne a bio do id passado");
-      console.log("# paradigma funcional: ");
-      console.log(functionalGetBioById(1));
-      console.log("- - -");
-      */
 /**
  *
  * Função que executa os procedimentos referentes a [questão 2 - letra A] em um formulário HTML
@@ -160,13 +107,6 @@ function calculateTask2A() {
         : (output = `Não foi encontrada Bio do ID informado como [${input}]`);
     document.getElementById("output-2-a").value = output;
 }
-/*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
 /**
  * Função para retornar a [bio] do [id] passado
  * usando o paradigma imperativo
@@ -186,21 +126,6 @@ function imperativeGetBioById(id) {
     }
     return result;
 }
-/*
-      console.log("# paradigma imperativo: ");
-      console.log(imperativeGetBioById(1));
-      console.log("- - -");
-      */
-//---------------------------------------------------------------------------------------
-/*
-      +
-      |
-      |   b) Crie uma função que retorne o name do id passado
-      |
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
 /**
  * Função para retornar o Name de acordo com o id passado
  * usando o paradigma funcional
@@ -214,12 +139,6 @@ function functionalGetNameById(id) {
     let person = newList.find((item) => item.id === id);
     return person ? person.name : "";
 }
-/*
-      console.log("b) Crie uma função que retorne o name do id passado");
-      console.log("# paradigma funcional: ");
-      console.log(functionalGetNameById(1));
-      console.log("- - -");
-      */
 /**
  *
  * Função que executa os procedimentos referentes a [questão 2 - letra B] em um formulário HTML
@@ -239,13 +158,6 @@ function calculateTask2B() {
         : (output = `Não foi encontrada Nome do ID informado como [${input}]`);
     document.getElementById("output-2-b").value = output;
 }
-/*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
 /**
  * Função para retornar o Name de acordo com o id passado
  * usando o paradigma imperativo
@@ -265,21 +177,6 @@ function imperativeGetNameById(id) {
     }
     return result;
 }
-/*
-      console.log("# paradigma imperativo: ");
-      console.log(imperativeGetNameById(1));
-      console.log("- - -");
-      */
-//---------------------------------------------------------------------------------------
-/*
-      +
-      |
-      |   c) Crie uma função que apague um item da lista a partir de um id passado
-      |
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
 /**
  * Função para remover o registro da lista de acordo com o id passado
  * usando o paradigma funcional
@@ -301,13 +198,6 @@ function functionalDeleteItemById(id) {
     }
     return result;
 }
-/*
-      console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
-      console.log("# paradigma funcional: ");
-      functionalDeleteItemById(2);
-      console.table(newList);
-      console.log("- - -");
-      */
 /**
  *
  * Função que atualiza os valores do array de elementos no respectivo elemento HTML
@@ -320,15 +210,15 @@ function functionalDeleteItemById(id) {
 function refreshArray() {
     let listString = JSON.stringify(newList, null, 2);
     listString = `
-    <label>Dados do array:</label>
-    <pre>
-        <code>
-        ${listString}
-        </code>
-    </pre>
-    <hr>
-    <label><b>De acordo com as alterações realizadas abaixo esse objeto será dinâmicamente atualizado</b></label>
-    `;
+      <label>Dados do array:</label>
+      <pre>
+          <code>
+          ${listString}
+          </code>
+      </pre>
+      <hr>
+      <label><b>De acordo com as alterações realizadas abaixo esse objeto será dinâmicamente atualizado</b></label>
+      `;
     let divTask2Array = document.getElementById("div-task-2-array");
     if (divTask2Array) {
         divTask2Array.innerHTML = listString;
@@ -357,13 +247,6 @@ function calculateTask2C() {
     console.log("# conclusão de execução de task 2 - c");
     refreshArray();
 }
-/*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
 /**
  * Função para remover o registro da lista de acordo com o id passado
  * usando o paradigma imperativo
@@ -381,22 +264,6 @@ function imperativeDeleteItemById(id) {
         }
     }
 }
-/*
-      console.log("# paradigma imperativo: ");
-      imperativeDeleteItemById(1);
-      console.table(newList);
-      console.log("- - -");
-      */
-//---------------------------------------------------------------------------------------
-/*
-      +
-      |
-      |   d) Crie uma função que altere a bio ou o name a partir de um id passado
-      |
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
 /**
  * Função para psquisar o registro da lista de acordo com o id passado
  * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
@@ -422,14 +289,6 @@ function functionalUpdateItemById(id, newContent, type) {
     }
     return result;
 }
-/*
-      console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
-      console.log("# paradigma funcional: ");
-      functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
-      functionalUpdateItemById(3,"Hernandez","name");
-      console.table(newList);
-      console.log("- - -");
-      */
 /**
  *
  * Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
@@ -472,15 +331,8 @@ function calculateTask2DName() {
     document.getElementById("output-2-d").value = output;
     refreshArray();
 }
-/*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
 /**
- * Função para psquisar o registro da lista de acordo com o id passado
+ * Função para pesquisar o registro da lista de acordo com o id passado
  * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
  * usando o paradigma imperativo
  *
@@ -505,11 +357,4 @@ function imperativeUpdateItemById(id, newContent, type) {
         }
     }
 }
-/*
-      console.log("# paradigma imperativo: ");
-      imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
-      imperativeUpdateItemById(4,"Giordano","name");
-      console.table(newList);
-      console.log("- - -");
-      */
 // e) Demonstre todas as funções com o paradigma funcional e com o imperativo

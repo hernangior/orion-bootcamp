@@ -1,11 +1,3 @@
-/*
-    +-----------------------------------------------------------------------------------------------
-    |
-    |   # Exercicio 01
-    |
-    +-----------------------------------------------------------------------------------------------
-    */
-
 /**
  * Função que retorna a quantidade de vogais de uma palavra informada
  *
@@ -20,26 +12,6 @@ function getNumberOfVowels(word: string): number {
     let vowelsFound = word.toLowerCase().match(regexExpression);
     return vowelsFound ? vowelsFound.length : 0;
   }
-  
-  /*
-          +
-          |
-          |   a) Exemplo de uso com uma palavra recebida via parâmetro da função.
-          |
-          +
-          */
-  /*
-          let word = "Hernandez";
-          console.log("# Na palavra ["+word+"] temos ["+getNumberOfVowels(word)+"] vogais");
-          */
-  
-  /*
-          +
-          |
-          |   b) Exemplo de uso com uma palavra recebida via input no formulário.
-          |
-          +
-          */
   
   /**
    *
@@ -61,15 +33,7 @@ function getNumberOfVowels(word: string): number {
     ) as HTMLInputElement;
     outputWord.value = output;
   }
-  
-  /*
-          +-----------------------------------------------------------------------------------------------
-          |
-          |   # Exercicio 02
-          |
-          +-----------------------------------------------------------------------------------------------
-          */
-  
+
   // array original com dados
   let lista: Array<Object> = [
     {
@@ -93,8 +57,7 @@ function getNumberOfVowels(word: string): number {
       bio: "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar.",
     },
   ];
-  //console.log("# Lista de dados em array para Exercício 02:");
-  //console.table(lista);
+  
   // classe de manipulação para facilitar o trabalho
   class Person {
     id: number;
@@ -122,20 +85,7 @@ function getNumberOfVowels(word: string): number {
   
   // efetiva mudança
   let newList = convertArrayToList(lista);
-  //console.log("# Lista de objetos para Exercício 02:");
-  //console.log(newList);
   
-  //---------------------------------------------------------------------------------------
-  
-  /*
-          +
-          |
-          |   a) Crie uma função que retorne a bio do id passado
-          |   
-          |   [ PARADIGMA FUNCIONAL ]
-          |
-          +
-          */
   /**
    * Função para retornar a bio do id passado
    * usando o paradigma funcional
@@ -149,14 +99,7 @@ function getNumberOfVowels(word: string): number {
     let person = newList.find((item) => item.id === id);
     return person ? person.bio : "";
   }
-  // rotina para teste
-  /*
-          console.log("# a) Crie uma função que retorne a bio do id passado");
-          console.log("# paradigma funcional: ");
-          console.log(functionalGetBioById(1));
-          console.log("- - -");
-          */
-  
+
   /**
    *
    * Função que executa os procedimentos referentes a [questão 2 - letra A] em um formulário HTML
@@ -179,13 +122,6 @@ function getNumberOfVowels(word: string): number {
     (document.getElementById("output-2-a") as HTMLInputElement).value = output;
   }
   
-  /*
-          +
-          |
-          |   [ PARADIGMA IMPERATIVO ]
-          |
-          +
-          */
   /**
    * Função para retornar a [bio] do [id] passado
    * usando o paradigma imperativo
@@ -209,23 +145,7 @@ function getNumberOfVowels(word: string): number {
     }
     return result;
   }
-  /*
-          console.log("# paradigma imperativo: ");
-          console.log(imperativeGetBioById(1));
-          console.log("- - -");
-          */
-  
-  //---------------------------------------------------------------------------------------
-  
-  /*
-          +
-          |
-          |   b) Crie uma função que retorne o name do id passado
-          |   
-          |   [ PARADIGMA FUNCIONAL ]
-          |
-          +
-          */
+
   /**
    * Função para retornar o Name de acordo com o id passado
    * usando o paradigma funcional
@@ -239,13 +159,7 @@ function getNumberOfVowels(word: string): number {
     let person = newList.find((item) => item.id === id);
     return person ? person.name : "";
   }
-  /*
-          console.log("b) Crie uma função que retorne o name do id passado");
-          console.log("# paradigma funcional: ");
-          console.log(functionalGetNameById(1));
-          console.log("- - -");
-          */
-  
+
   /**
    *
    * Função que executa os procedimentos referentes a [questão 2 - letra B] em um formulário HTML
@@ -267,14 +181,6 @@ function getNumberOfVowels(word: string): number {
       : (output = `Não foi encontrada Nome do ID informado como [${input}]`);
     (document.getElementById("output-2-b") as HTMLInputElement).value = output;
   }
-  
-  /*
-          +
-          |
-          |   [ PARADIGMA IMPERATIVO ]
-          |
-          +
-          */
   
   /**
    * Função para retornar o Name de acordo com o id passado
@@ -299,23 +205,6 @@ function getNumberOfVowels(word: string): number {
     }
     return result;
   }
-  /*
-          console.log("# paradigma imperativo: ");
-          console.log(imperativeGetNameById(1));
-          console.log("- - -");
-          */
-  
-  //---------------------------------------------------------------------------------------
-  
-  /*
-          +
-          |
-          |   c) Crie uma função que apague um item da lista a partir de um id passado
-          |   
-          |   [ PARADIGMA FUNCIONAL ]
-          |
-          +
-          */
   
   /**
    * Função para remover o registro da lista de acordo com o id passado
@@ -337,14 +226,6 @@ function getNumberOfVowels(word: string): number {
     }
     return result;
   }
-  
-  /*
-          console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
-          console.log("# paradigma funcional: ");
-          functionalDeleteItemById(2);
-          console.table(newList);
-          console.log("- - -");
-          */
   
   /**
    *
@@ -398,15 +279,7 @@ function getNumberOfVowels(word: string): number {
     console.log("# conclusão de execução de task 2 - c");
     refreshArray();
   }
-  
-  /*
-          +
-          |
-          |   [ PARADIGMA IMPERATIVO ]
-          |
-          +
-          */
-  
+
   /**
    * Função para remover o registro da lista de acordo com o id passado
    * usando o paradigma imperativo
@@ -424,24 +297,6 @@ function getNumberOfVowels(word: string): number {
       }
     }
   }
-  /*
-          console.log("# paradigma imperativo: ");
-          imperativeDeleteItemById(1);
-          console.table(newList);
-          console.log("- - -");
-          */
-  
-  //---------------------------------------------------------------------------------------
-  
-  /*
-          +
-          |
-          |   d) Crie uma função que altere a bio ou o name a partir de um id passado
-          |   
-          |   [ PARADIGMA FUNCIONAL ]
-          |
-          +
-          */
   
   /**
    * Função para psquisar o registro da lista de acordo com o id passado
@@ -471,14 +326,6 @@ function getNumberOfVowels(word: string): number {
     }
     return result;
   }
-  /*
-          console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
-          console.log("# paradigma funcional: ");
-          functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
-          functionalUpdateItemById(3,"Hernandez","name");
-          console.table(newList);
-          console.log("- - -");
-          */
   
   /**
    *
@@ -532,15 +379,8 @@ function getNumberOfVowels(word: string): number {
     refreshArray();
   }
   
-  /*
-          +
-          |
-          |   [ PARADIGMA IMPERATIVO ]
-          |
-          +
-          */
   /**
-   * Função para psquisar o registro da lista de acordo com o id passado
+   * Função para pesquisar o registro da lista de acordo com o id passado
    * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
    * usando o paradigma imperativo
    *
@@ -569,13 +409,6 @@ function getNumberOfVowels(word: string): number {
       }
     }
   }
-  /*
-          console.log("# paradigma imperativo: ");
-          imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
-          imperativeUpdateItemById(4,"Giordano","name");
-          console.table(newList);
-          console.log("- - -");
-          */
-  
+
   // e) Demonstre todas as funções com o paradigma funcional e com o imperativo
   

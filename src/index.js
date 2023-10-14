@@ -358,3 +358,5 @@ function imperativeUpdateItemById(id, newContent, type) {
     }
 }
 // e) Demonstre todas as funções com o paradigma funcional e com o imperativo
+
+

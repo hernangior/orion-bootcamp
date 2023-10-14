@@ -22,35 +22,35 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      +
-      |
-      |   a) Exemplo de uso com uma palavra recebida via parâmetro da função.
-      |
-      +
-      */
+        +
+        |
+        |   a) Exemplo de uso com uma palavra recebida via parâmetro da função.
+        |
+        +
+        */
   /*
-      let word = "Hernandez";
-      console.log("# Na palavra ["+word+"] temos ["+getNumberOfVowels(word)+"] vogais");
-      */
+        let word = "Hernandez";
+        console.log("# Na palavra ["+word+"] temos ["+getNumberOfVowels(word)+"] vogais");
+        */
   
   /*
-      +
-      |
-      |   b) Exemplo de uso com uma palavra recebida via input no formulário.
-      |
-      +
-      */
-
+        +
+        |
+        |   b) Exemplo de uso com uma palavra recebida via input no formulário.
+        |
+        +
+        */
+  
   /**
-  * 
-  * Função que retorna a quantidade de vogais de uma palavra informada
-  * em um formulário HTML
-  *
-  * @param   - sem parâmetros
-  * @returns void - sem retorno
-  *
-  * @beta
-  */ 
+   *
+   * Função que retorna a quantidade de vogais de uma palavra informada
+   * em um formulário HTML
+   *
+   * @param   - sem parâmetros
+   * @returns void - sem retorno
+   *
+   * @beta
+   */
   function showNumberOfWowels(): void {
     let inputWord = document.getElementById("inputPalavra") as HTMLInputElement;
     let numberOfVowels = getNumberOfVowels(inputWord.value);
@@ -63,12 +63,12 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      +-----------------------------------------------------------------------------------------------
-      |
-      |   # Exercicio 02
-      |
-      +-----------------------------------------------------------------------------------------------
-      */
+        +-----------------------------------------------------------------------------------------------
+        |
+        |   # Exercicio 02
+        |
+        +-----------------------------------------------------------------------------------------------
+        */
   
   // array original com dados
   let lista: Array<Object> = [
@@ -106,20 +106,20 @@ function getNumberOfVowels(word: string): number {
       this.bio = bio;
     }
   }
-
-/**
- * Função para conversão de array para lista de objetos da classe Person
- *
- *
- * @param array - array com os dados da lista 
- * @returns Array<Person> - Retorna um array de objetos do tipo Person
- *
- * @beta
- */
+  
+  /**
+   * Função para conversão de array para lista de objetos da classe Person
+   *
+   *
+   * @param array - array com os dados da lista
+   * @returns Array<Person> - Retorna um array de objetos do tipo Person
+   *
+   * @beta
+   */
   function convertArrayToList(array: Array<any>): Array<Person> {
     return array.map((obj) => new Person(obj.id, obj.name, obj.bio));
   }
-
+  
   // efetiva mudança
   let newList = convertArrayToList(lista);
   //console.log("# Lista de objetos para Exercício 02:");
@@ -128,45 +128,45 @@ function getNumberOfVowels(word: string): number {
   //---------------------------------------------------------------------------------------
   
   /*
-      +
-      |
-      |   a) Crie uma função que retorne a bio do id passado
-      |   
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
-/**
- * Função para retornar a bio do id passado
- * usando o paradigma funcional
- *
- * @param id - item de nome id do tipo número contendo o id a ser pesquisado
- * @returns string - retorna uma string referente a Bio desejada de acordo com o Id
- *
- * @beta
- */ 
+        +
+        |
+        |   a) Crie uma função que retorne a bio do id passado
+        |   
+        |   [ PARADIGMA FUNCIONAL ]
+        |
+        +
+        */
+  /**
+   * Função para retornar a bio do id passado
+   * usando o paradigma funcional
+   *
+   * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+   * @returns string - retorna uma string referente a Bio desejada de acordo com o Id
+   *
+   * @beta
+   */
   function functionalGetBioById(id: number): string {
     let person = newList.find((item) => item.id === id);
     return person ? person.bio : "";
   }
   // rotina para teste
   /*
-      console.log("# a) Crie uma função que retorne a bio do id passado");
-      console.log("# paradigma funcional: ");
-      console.log(functionalGetBioById(1));
-      console.log("- - -");
-      */
+        console.log("# a) Crie uma função que retorne a bio do id passado");
+        console.log("# paradigma funcional: ");
+        console.log(functionalGetBioById(1));
+        console.log("- - -");
+        */
   
   /**
-  * 
-  * Função que executa os procedimentos referentes a [questão 2 - letra A] em um formulário HTML
-  * O objetivo da função é retornar a bio do [id] passado na página HTML como saída
-  *
-  * @param   - sem parâmetros
-  * @returns void - sem retorno, setado diretamente no componente HTML
-  *
-  * @beta
-  */
+   *
+   * Função que executa os procedimentos referentes a [questão 2 - letra A] em um formulário HTML
+   * O objetivo da função é retornar a bio do [id] passado na página HTML como saída
+   *
+   * @param   - sem parâmetros
+   * @returns void - sem retorno, setado diretamente no componente HTML
+   *
+   * @beta
+   */
   function calculateTask2A() {
     let input = parseInt(
       (document.getElementById("input-2-a") as HTMLInputElement).value
@@ -180,21 +180,21 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
-/**
- * Função para retornar a [bio] do [id] passado
- * usando o paradigma imperativo
- *
- * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
- * @returns string - retorna uma string referente a [Bio] desejada de acordo com o [Id]
- *
- * @beta
- */ 
+        +
+        |
+        |   [ PARADIGMA IMPERATIVO ]
+        |
+        +
+        */
+  /**
+   * Função para retornar a [bio] do [id] passado
+   * usando o paradigma imperativo
+   *
+   * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @returns string - retorna uma string referente a [Bio] desejada de acordo com o [Id]
+   *
+   * @beta
+   */
   function imperativeGetBioById(id: number): string {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
@@ -210,52 +210,52 @@ function getNumberOfVowels(word: string): number {
     return result;
   }
   /*
-      console.log("# paradigma imperativo: ");
-      console.log(imperativeGetBioById(1));
-      console.log("- - -");
-      */
+        console.log("# paradigma imperativo: ");
+        console.log(imperativeGetBioById(1));
+        console.log("- - -");
+        */
   
   //---------------------------------------------------------------------------------------
   
   /*
-      +
-      |
-      |   b) Crie uma função que retorne o name do id passado
-      |   
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
-/**
- * Função para retornar o Name de acordo com o id passado
- * usando o paradigma funcional
- *
- * @param id - item de nome id do tipo número contendo o id a ser pesquisado
- * @returns string - retorna uma string referente o Name desejada de acordo com o Id
- *
- * @beta
- */ 
+        +
+        |
+        |   b) Crie uma função que retorne o name do id passado
+        |   
+        |   [ PARADIGMA FUNCIONAL ]
+        |
+        +
+        */
+  /**
+   * Função para retornar o Name de acordo com o id passado
+   * usando o paradigma funcional
+   *
+   * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+   * @returns string - retorna uma string referente o Name desejada de acordo com o Id
+   *
+   * @beta
+   */
   function functionalGetNameById(id: number): string {
     let person = newList.find((item) => item.id === id);
     return person ? person.name : "";
   }
   /*
-      console.log("b) Crie uma função que retorne o name do id passado");
-      console.log("# paradigma funcional: ");
-      console.log(functionalGetNameById(1));
-      console.log("- - -");
-      */
+        console.log("b) Crie uma função que retorne o name do id passado");
+        console.log("# paradigma funcional: ");
+        console.log(functionalGetNameById(1));
+        console.log("- - -");
+        */
   
   /**
-  * 
-  * Função que executa os procedimentos referentes a [questão 2 - letra B] em um formulário HTML
-  * O objetivo da função é retornar o [Name] do [Id] passado na página HTML como saída
-  *
-  * @param   - sem parâmetros
-  * @returns void - sem retorno, setado diretamente no componente HTML
-  *
-  * @beta
-  */
+   *
+   * Função que executa os procedimentos referentes a [questão 2 - letra B] em um formulário HTML
+   * O objetivo da função é retornar o [Name] do [Id] passado na página HTML como saída
+   *
+   * @param   - sem parâmetros
+   * @returns void - sem retorno, setado diretamente no componente HTML
+   *
+   * @beta
+   */
   function calculateTask2B() {
     let input = parseInt(
       (document.getElementById("input-2-b") as HTMLInputElement).value
@@ -269,22 +269,22 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
-
-/**
- * Função para retornar o Name de acordo com o id passado
- * usando o paradigma imperativo
- *
- * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
- * @returns string - retorna uma string referente o [Name] desejada de acordo com o [Id]
- *
- * @beta
- */ 
+        +
+        |
+        |   [ PARADIGMA IMPERATIVO ]
+        |
+        +
+        */
+  
+  /**
+   * Função para retornar o Name de acordo com o id passado
+   * usando o paradigma imperativo
+   *
+   * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @returns string - retorna uma string referente o [Name] desejada de acordo com o [Id]
+   *
+   * @beta
+   */
   function imperativeGetNameById(id: number): string {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
@@ -300,32 +300,32 @@ function getNumberOfVowels(word: string): number {
     return result;
   }
   /*
-      console.log("# paradigma imperativo: ");
-      console.log(imperativeGetNameById(1));
-      console.log("- - -");
-      */
+        console.log("# paradigma imperativo: ");
+        console.log(imperativeGetNameById(1));
+        console.log("- - -");
+        */
   
   //---------------------------------------------------------------------------------------
   
   /*
-      +
-      |
-      |   c) Crie uma função que apague um item da lista a partir de um id passado
-      |   
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
-
-/**
- * Função para remover o registro da lista de acordo com o id passado
- * usando o paradigma funcional
- *
- * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
- * @returns string - retorna uma string referente ao resultado do processo de exclusão
- *
- * @beta
- */ 
+        +
+        |
+        |   c) Crie uma função que apague um item da lista a partir de um id passado
+        |   
+        |   [ PARADIGMA FUNCIONAL ]
+        |
+        +
+        */
+  
+  /**
+   * Função para remover o registro da lista de acordo com o id passado
+   * usando o paradigma funcional
+   *
+   * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @returns string - retorna uma string referente ao resultado do processo de exclusão
+   *
+   * @beta
+   */
   function functionalDeleteItemById(id: number): string {
     let index = newList.findIndex((item) => item.id === id);
     let result;
@@ -339,23 +339,23 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
-      console.log("# paradigma funcional: ");
-      functionalDeleteItemById(2);
-      console.table(newList);
-      console.log("- - -");
-      */
+        console.log("c) Crie uma função que apague um item da lista a partir de um id passado")
+        console.log("# paradigma funcional: ");
+        functionalDeleteItemById(2);
+        console.table(newList);
+        console.log("- - -");
+        */
   
   /**
-  * 
-  * Função que executa os procedimentos referentes a [questão 2 - letra C] em um formulário HTML
-  * O objetivo da função é remover o registro da lista de acordo com o [id] passado via Input no HTML
-  *
-  * @param   - sem parâmetros
-  * @returns void - sem retorno, setado diretamente no componente HTML
-  *
-  * @beta
-  */
+   *
+   * Função que executa os procedimentos referentes a [questão 2 - letra C] em um formulário HTML
+   * O objetivo da função é remover o registro da lista de acordo com o [id] passado via Input no HTML
+   *
+   * @param   - sem parâmetros
+   * @returns void - sem retorno, setado diretamente no componente HTML
+   *
+   * @beta
+   */
   function calculateTask2C() {
     console.log("# inicio de execução de task 2 - c");
     let input = parseInt(
@@ -372,22 +372,22 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
-
-/**
- * Função para remover o registro da lista de acordo com o id passado
- * usando o paradigma imperativo
- *
- * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
- * @returns void - a função não retorna resultado
- *
- * @beta
- */ 
+        +
+        |
+        |   [ PARADIGMA IMPERATIVO ]
+        |
+        +
+        */
+  
+  /**
+   * Função para remover o registro da lista de acordo com o id passado
+   * usando o paradigma imperativo
+   *
+   * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @returns void - a função não retorna resultado
+   *
+   * @beta
+   */
   function imperativeDeleteItemById(id: number): void {
     for (let i = 0; i < newList.length; i++) {
       if (newList[i].id === id) {
@@ -397,37 +397,37 @@ function getNumberOfVowels(word: string): number {
     }
   }
   /*
-      console.log("# paradigma imperativo: ");
-      imperativeDeleteItemById(1);
-      console.table(newList);
-      console.log("- - -");
-      */
+        console.log("# paradigma imperativo: ");
+        imperativeDeleteItemById(1);
+        console.table(newList);
+        console.log("- - -");
+        */
   
   //---------------------------------------------------------------------------------------
   
   /*
-      +
-      |
-      |   d) Crie uma função que altere a bio ou o name a partir de um id passado
-      |   
-      |   [ PARADIGMA FUNCIONAL ]
-      |
-      +
-      */
-
-/**
- * Função para psquisar o registro da lista de acordo com o id passado
- * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
- * usando o paradigma funcional
- *
- * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
- * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
- * @param type - item de nome [type] do tipo string para se identificar o que mudará
- * 
- * @returns string - a função retorna o resultado da execução para posterior validação
- *
- * @beta
- */ 
+        +
+        |
+        |   d) Crie uma função que altere a bio ou o name a partir de um id passado
+        |   
+        |   [ PARADIGMA FUNCIONAL ]
+        |
+        +
+        */
+  
+  /**
+   * Função para psquisar o registro da lista de acordo com o id passado
+   * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
+   * usando o paradigma funcional
+   *
+   * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
+   * @param type - item de nome [type] do tipo string para se identificar o que mudará
+   *
+   * @returns string - a função retorna o resultado da execução para posterior validação
+   *
+   * @beta
+   */
   function functionalUpdateItemById(
     id: number,
     newContent: string,
@@ -444,24 +444,24 @@ function getNumberOfVowels(word: string): number {
     return result;
   }
   /*
-      console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
-      console.log("# paradigma funcional: ");
-      functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
-      functionalUpdateItemById(3,"Hernandez","name");
-      console.table(newList);
-      console.log("- - -");
-      */
+        console.log("d) Crie uma função que altere a bio ou o name a partir de um id passado");
+        console.log("# paradigma funcional: ");
+        functionalUpdateItemById(3,"Aluno de Bootcamp","bio");
+        functionalUpdateItemById(3,"Hernandez","name");
+        console.table(newList);
+        console.log("- - -");
+        */
   
   /**
-  * 
-  * Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
-  * O objetivo da função pesquisar o [Id] passado via Input no HTML e alterar a [Bio] para o valor informado
-  *
-  * @param   - sem parâmetros
-  * @returns void - sem retorno, setado diretamente no componente HTML
-  *
-  * @beta
-  */ 
+   *
+   * Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
+   * O objetivo da função pesquisar o [Id] passado via Input no HTML e alterar a [Bio] para o valor informado
+   *
+   * @param   - sem parâmetros
+   * @returns void - sem retorno, setado diretamente no componente HTML
+   *
+   * @beta
+   */
   function calculateTask2DBio() {
     let inputId = parseInt(
       (document.getElementById("input-2-d-id") as HTMLInputElement).value
@@ -478,15 +478,15 @@ function getNumberOfVowels(word: string): number {
   }
   
   /**
-  * 
-  * Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
-  * O objetivo da função pesquisar o [Id] passado via Input no HTML e alterar o [Name] para o valor informado
-  *
-  * @param   - sem parâmetros
-  * @returns void - sem retorno, setado diretamente no componente HTML
-  *
-  * @beta
-  */ 
+   *
+   * Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
+   * O objetivo da função pesquisar o [Id] passado via Input no HTML e alterar o [Name] para o valor informado
+   *
+   * @param   - sem parâmetros
+   * @returns void - sem retorno, setado diretamente no componente HTML
+   *
+   * @beta
+   */
   function calculateTask2DName() {
     let inputId = parseInt(
       (document.getElementById("input-2-d-id") as HTMLInputElement).value
@@ -503,25 +503,25 @@ function getNumberOfVowels(word: string): number {
   }
   
   /*
-      +
-      |
-      |   [ PARADIGMA IMPERATIVO ]
-      |
-      +
-      */
-/**
- * Função para psquisar o registro da lista de acordo com o id passado
- * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
- * usando o paradigma imperativo
- *
- * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
- * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
- * @param type - item de nome [type] do tipo string para se identificar o que mudará
- * 
- * @returns void - a função não retorna resultado
- *
- * @beta
- */ 
+        +
+        |
+        |   [ PARADIGMA IMPERATIVO ]
+        |
+        +
+        */
+  /**
+   * Função para psquisar o registro da lista de acordo com o id passado
+   * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
+   * usando o paradigma imperativo
+   *
+   * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
+   * @param type - item de nome [type] do tipo string para se identificar o que mudará
+   *
+   * @returns void - a função não retorna resultado
+   *
+   * @beta
+   */
   function imperativeUpdateItemById(
     id: number,
     newContent: string,
@@ -540,12 +540,12 @@ function getNumberOfVowels(word: string): number {
     }
   }
   /*
-      console.log("# paradigma imperativo: ");
-      imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
-      imperativeUpdateItemById(4,"Giordano","name");
-      console.table(newList);
-      console.log("- - -");
-      */
+        console.log("# paradigma imperativo: ");
+        imperativeUpdateItemById(4,"Profissional de tecnologia","bio");
+        imperativeUpdateItemById(4,"Giordano","name");
+        console.table(newList);
+        console.log("- - -");
+        */
   
   // e) Demonstre todas as funções com o paradigma funcional e com o imperativo
   

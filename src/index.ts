@@ -91,12 +91,14 @@ function getNumberOfVowels(word: string): number {
    * usando o paradigma funcional
    *
    * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+   * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
    * @returns string - retorna uma string referente a Bio desejada de acordo com o Id
+   * 
    *
    * @beta
    */
-  function functionalGetBioById(id: number): string {
-    let person = newList.find((item) => item.id === id);
+  function functionalGetBioById(id: number, list : Person[]): string {
+    let person = list.find((item) => item.id === id);
     return person ? person.bio : "";
   }
 
@@ -114,7 +116,7 @@ function getNumberOfVowels(word: string): number {
     let input = parseInt(
       (document.getElementById("input-2-a") as HTMLInputElement).value
     );
-    let result = functionalGetBioById(input);
+    let result = functionalGetBioById(input, newList);
     let output = "";
     result
       ? (output = `A Bio do ID informado como [${input}] é: ${result}`)
@@ -134,11 +136,13 @@ function getNumberOfVowels(word: string): number {
   function imperativeGetBioById(id: number): string {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
+      
       let item = lista[i] as {
         id: number;
         name: string;
         bio: string;
       };
+
       if (item.id === id) {
         result = item.bio;
       }
@@ -151,12 +155,13 @@ function getNumberOfVowels(word: string): number {
    * usando o paradigma funcional
    *
    * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+   * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
    * @returns string - retorna uma string referente o Name desejada de acordo com o Id
    *
    * @beta
    */
-  function functionalGetNameById(id: number): string {
-    let person = newList.find((item) => item.id === id);
+  function functionalGetNameById(id: number, list: Person[]): string {
+    let person = list.find((item) => item.id === id);
     return person ? person.name : "";
   }
 
@@ -166,6 +171,7 @@ function getNumberOfVowels(word: string): number {
    * O objetivo da função é retornar o [Name] do [Id] passado na página HTML como saída
    *
    * @param   - sem parâmetros
+   * 
    * @returns void - sem retorno, setado diretamente no componente HTML
    *
    * @beta
@@ -174,7 +180,7 @@ function getNumberOfVowels(word: string): number {
     let input = parseInt(
       (document.getElementById("input-2-b") as HTMLInputElement).value
     );
-    let result = functionalGetNameById(input);
+    let result = functionalGetNameById(input, newList);
     let output = "";
     result
       ? (output = `O nome do ID informado como [${input}] é: ${result}`)
@@ -211,15 +217,16 @@ function getNumberOfVowels(word: string): number {
    * usando o paradigma funcional
    *
    * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+   * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
    * @returns string - retorna uma string referente ao resultado do processo de exclusão
    *
    * @beta
    */
-  function functionalDeleteItemById(id: number): string {
-    let index = newList.findIndex((item) => item.id === id);
+  function functionalDeleteItemById(id: number, list: Person[]): string {
+    let index = list.findIndex((item) => item.id === id);
     let result;
     if (index !== -1) {
-      newList.splice(index, 1);
+      list.splice(index, 1);
       result = "success";
     } else {
       result = "nada a excluir";
@@ -231,13 +238,13 @@ function getNumberOfVowels(word: string): number {
    *
    * Função que atualiza os valores do array de elementos no respectivo elemento HTML
    *
-   * @param   - sem parâmetros
+   * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
    * @returns void - sem retorno, setado diretamente no componente HTML
    *
    * @beta
    */
-  function refreshArray(): void {
-    let listString = JSON.stringify(newList, null, 2);
+  function refreshArray(list : Person[]): void {
+    let listString = JSON.stringify(list, null, 2);
     listString = `
       <label>Dados do array:</label>
       <pre>
@@ -271,13 +278,13 @@ function getNumberOfVowels(word: string): number {
     );
     console.log("# input: " + input);
     let output = "";
-    functionalDeleteItemById(input) == "success"
+    functionalDeleteItemById(input, newList) == "success"
       ? (output = `O item com ID informado como [${input}] foi removido da lista`)
       : (output = `Não existe na lista um item com o ID informado como [${input}]`);
     console.log("# output: " + output);
     (document.getElementById("output-2-c") as HTMLInputElement).value = output;
     console.log("# conclusão de execução de task 2 - c");
-    refreshArray();
+    refreshArray(newList);
   }
 
   /**
@@ -306,6 +313,7 @@ function getNumberOfVowels(word: string): number {
    * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
    * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
    * @param type - item de nome [type] do tipo string para se identificar o que mudará
+   * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
    *
    * @returns string - a função retorna o resultado da execução para posterior validação
    *
@@ -314,9 +322,10 @@ function getNumberOfVowels(word: string): number {
   function functionalUpdateItemById(
     id: number,
     newContent: string,
-    type: "bio" | "name"
+    type: "bio" | "name",
+    list: Person[]
   ): string {
-    let item = newList.find((item) => item.id === id);
+    let item = list.find((item) => item.id === id);
     let result = "";
     if (item) {
       type == "bio" ? (item.bio = newContent) : "";
@@ -344,13 +353,13 @@ function getNumberOfVowels(word: string): number {
     let inputText = (
       document.getElementById("input-2-d-text") as HTMLInputElement
     ).value;
-    let result = functionalUpdateItemById(inputId, inputText, "bio");
+    let result = functionalUpdateItemById(inputId, inputText, "bio", newList);
     let output = "";
     result == "not found"
       ? (output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`)
       : (output = `A Bio referente ao ID informado como [${inputId}] foi alterada!`);
     (document.getElementById("output-2-d") as HTMLInputElement).value = output;
-    refreshArray();
+    refreshArray(newList);
   }
   
   /**
@@ -370,13 +379,13 @@ function getNumberOfVowels(word: string): number {
     let inputText = (
       document.getElementById("input-2-d-text") as HTMLInputElement
     ).value;
-    let result = functionalUpdateItemById(inputId, inputText, "name");
+    let result = functionalUpdateItemById(inputId, inputText, "name", newList);
     let output = "";
     result == "not found"
       ? (output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`)
       : (output = `O Name referente ao ID informado como [${inputId}] foi alterada!`);
     (document.getElementById("output-2-d") as HTMLInputElement).value = output;
-    refreshArray();
+    refreshArray(newList);
   }
   
   /**

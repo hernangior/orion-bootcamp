@@ -310,6 +310,32 @@ function functionalDeleteItemById(id) {
       */
 /**
  *
+ * Função que atualiza os valores do array de elementos no respectivo elemento HTML
+ *
+ * @param   - sem parâmetros
+ * @returns void - sem retorno, setado diretamente no componente HTML
+ *
+ * @beta
+ */
+function refreshArray() {
+    let listString = JSON.stringify(newList, null, 2);
+    listString = `
+    <label>Dados do array:</label>
+    <pre>
+        <code>
+        ${listString}
+        </code>
+    </pre>
+    <hr>
+    <label><b>De acordo com as alterações realizadas abaixo esse objeto será dinâmicamente atualizado</b></label>
+    `;
+    let divTask2Array = document.getElementById("div-task-2-array");
+    if (divTask2Array) {
+        divTask2Array.innerHTML = listString;
+    }
+}
+/**
+ *
  * Função que executa os procedimentos referentes a [questão 2 - letra C] em um formulário HTML
  * O objetivo da função é remover o registro da lista de acordo com o [id] passado via Input no HTML
  *
@@ -329,6 +355,7 @@ function calculateTask2C() {
     console.log("# output: " + output);
     document.getElementById("output-2-c").value = output;
     console.log("# conclusão de execução de task 2 - c");
+    refreshArray();
 }
 /*
       +
@@ -422,6 +449,7 @@ function calculateTask2DBio() {
         ? (output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`)
         : (output = `A Bio referente ao ID informado como [${inputId}] foi alterada!`);
     document.getElementById("output-2-d").value = output;
+    refreshArray();
 }
 /**
  *
@@ -442,6 +470,7 @@ function calculateTask2DName() {
         ? (output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`)
         : (output = `O Name referente ao ID informado como [${inputId}] foi alterada!`);
     document.getElementById("output-2-d").value = output;
+    refreshArray();
 }
 /*
       +

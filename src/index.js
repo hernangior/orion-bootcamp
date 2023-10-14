@@ -80,12 +80,14 @@ let newList = convertArrayToList(lista);
  * usando o paradigma funcional
  *
  * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  * @returns string - retorna uma string referente a Bio desejada de acordo com o Id
+ *
  *
  * @beta
  */
-function functionalGetBioById(id) {
-    let person = newList.find((item) => item.id === id);
+function functionalGetBioById(id, list) {
+    let person = list.find((item) => item.id === id);
     return person ? person.bio : "";
 }
 /**
@@ -100,7 +102,7 @@ function functionalGetBioById(id) {
  */
 function calculateTask2A() {
     let input = parseInt(document.getElementById("input-2-a").value);
-    let result = functionalGetBioById(input);
+    let result = functionalGetBioById(input, newList);
     let output = "";
     result
         ? (output = `A Bio do ID informado como [${input}] é: ${result}`)
@@ -131,12 +133,13 @@ function imperativeGetBioById(id) {
  * usando o paradigma funcional
  *
  * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  * @returns string - retorna uma string referente o Name desejada de acordo com o Id
  *
  * @beta
  */
-function functionalGetNameById(id) {
-    let person = newList.find((item) => item.id === id);
+function functionalGetNameById(id, list) {
+    let person = list.find((item) => item.id === id);
     return person ? person.name : "";
 }
 /**
@@ -145,13 +148,14 @@ function functionalGetNameById(id) {
  * O objetivo da função é retornar o [Name] do [Id] passado na página HTML como saída
  *
  * @param   - sem parâmetros
+ *
  * @returns void - sem retorno, setado diretamente no componente HTML
  *
  * @beta
  */
 function calculateTask2B() {
     let input = parseInt(document.getElementById("input-2-b").value);
-    let result = functionalGetNameById(input);
+    let result = functionalGetNameById(input, newList);
     let output = "";
     result
         ? (output = `O nome do ID informado como [${input}] é: ${result}`)
@@ -182,15 +186,16 @@ function imperativeGetNameById(id) {
  * usando o paradigma funcional
  *
  * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  * @returns string - retorna uma string referente ao resultado do processo de exclusão
  *
  * @beta
  */
-function functionalDeleteItemById(id) {
-    let index = newList.findIndex((item) => item.id === id);
+function functionalDeleteItemById(id, list) {
+    let index = list.findIndex((item) => item.id === id);
     let result;
     if (index !== -1) {
-        newList.splice(index, 1);
+        list.splice(index, 1);
         result = "success";
     }
     else {
@@ -202,13 +207,13 @@ function functionalDeleteItemById(id) {
  *
  * Função que atualiza os valores do array de elementos no respectivo elemento HTML
  *
- * @param   - sem parâmetros
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  * @returns void - sem retorno, setado diretamente no componente HTML
  *
  * @beta
  */
-function refreshArray() {
-    let listString = JSON.stringify(newList, null, 2);
+function refreshArray(list) {
+    let listString = JSON.stringify(list, null, 2);
     listString = `
       <label>Dados do array:</label>
       <pre>
@@ -239,13 +244,13 @@ function calculateTask2C() {
     let input = parseInt(document.getElementById("input-2-c").value);
     console.log("# input: " + input);
     let output = "";
-    functionalDeleteItemById(input) == "success"
+    functionalDeleteItemById(input, newList) == "success"
         ? (output = `O item com ID informado como [${input}] foi removido da lista`)
         : (output = `Não existe na lista um item com o ID informado como [${input}]`);
     console.log("# output: " + output);
     document.getElementById("output-2-c").value = output;
     console.log("# conclusão de execução de task 2 - c");
-    refreshArray();
+    refreshArray(newList);
 }
 /**
  * Função para remover o registro da lista de acordo com o id passado
@@ -272,13 +277,14 @@ function imperativeDeleteItemById(id) {
  * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
  * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
  * @param type - item de nome [type] do tipo string para se identificar o que mudará
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  *
  * @returns string - a função retorna o resultado da execução para posterior validação
  *
  * @beta
  */
-function functionalUpdateItemById(id, newContent, type) {
-    let item = newList.find((item) => item.id === id);
+function functionalUpdateItemById(id, newContent, type, list) {
+    let item = list.find((item) => item.id === id);
     let result = "";
     if (item) {
         type == "bio" ? (item.bio = newContent) : "";
@@ -302,13 +308,13 @@ function functionalUpdateItemById(id, newContent, type) {
 function calculateTask2DBio() {
     let inputId = parseInt(document.getElementById("input-2-d-id").value);
     let inputText = document.getElementById("input-2-d-text").value;
-    let result = functionalUpdateItemById(inputId, inputText, "bio");
+    let result = functionalUpdateItemById(inputId, inputText, "bio", newList);
     let output = "";
     result == "not found"
         ? (output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`)
         : (output = `A Bio referente ao ID informado como [${inputId}] foi alterada!`);
     document.getElementById("output-2-d").value = output;
-    refreshArray();
+    refreshArray(newList);
 }
 /**
  *
@@ -323,13 +329,13 @@ function calculateTask2DBio() {
 function calculateTask2DName() {
     let inputId = parseInt(document.getElementById("input-2-d-id").value);
     let inputText = document.getElementById("input-2-d-text").value;
-    let result = functionalUpdateItemById(inputId, inputText, "name");
+    let result = functionalUpdateItemById(inputId, inputText, "name", newList);
     let output = "";
     result == "not found"
         ? (output = `Não foi encontrada dados para alterar referentes ao ID informado como [${inputId}]`)
         : (output = `O Name referente ao ID informado como [${inputId}] foi alterada!`);
     document.getElementById("output-2-d").value = output;
-    refreshArray();
+    refreshArray(newList);
 }
 /**
  * Função para pesquisar o registro da lista de acordo com o id passado

@@ -314,7 +314,7 @@ function getNumberOfVowels(word: string): number {
   function functionalUpdateItemById(
     id: number,
     newContent: string,
-    type: string
+    type: "bio" | "name"
   ): string {
     let item = newList.find((item) => item.id === id);
     let result = "";

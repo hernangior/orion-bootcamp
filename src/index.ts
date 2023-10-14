@@ -9,7 +9,7 @@
 // função que retorna a quantidade de vogais da palavra passada.
 function getNumberOfVowels(word: string): number {
     let regexExpression = /[aeiouàáâãçèéêìíòóôõùú]/gi;
-    let vowelsFound = word.match(regexExpression);
+    let vowelsFound = word.toLowerCase().match(regexExpression);
     return vowelsFound ? vowelsFound.length : 0;
   }
   

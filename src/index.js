@@ -118,7 +118,7 @@ function calculateTask2A() {
  *
  * @beta
  */
-function imperativeGetBioById(id) {
+function imperativeGetBioById(id, lista) {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
         let item = lista[i];
@@ -171,7 +171,7 @@ function calculateTask2B() {
  *
  * @beta
  */
-function imperativeGetNameById(id) {
+function imperativeGetNameById(id, lista) {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
         let item = lista[i];
@@ -257,14 +257,15 @@ function calculateTask2C() {
  * usando o paradigma imperativo
  *
  * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  * @returns void - a função não retorna resultado
  *
  * @beta
  */
-function imperativeDeleteItemById(id) {
-    for (let i = 0; i < newList.length; i++) {
-        if (newList[i].id === id) {
-            newList.splice(i, 1);
+function imperativeDeleteItemById(id, list) {
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].id === id) {
+            list.splice(i, 1);
             break;
         }
     }
@@ -345,19 +346,20 @@ function calculateTask2DName() {
  * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
  * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
  * @param type - item de nome [type] do tipo string para se identificar o que mudará
+ * @param list - item de nome list do tipo Person[] contendo a lista a ser manipulada
  *
  * @returns void - a função não retorna resultado
  *
  * @beta
  */
-function imperativeUpdateItemById(id, newContent, type) {
-    for (let i = 0; i < newList.length; i++) {
-        if (newList[i].id === id) {
+function imperativeUpdateItemById(id, newContent, type, list) {
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].id === id) {
             if (type == "bio") {
-                newList[i].bio = newContent;
+                list[i].bio = newContent;
             }
             if (type == "name") {
-                newList[i].name = newContent;
+                list[i].name = newContent;
             }
             break;
         }

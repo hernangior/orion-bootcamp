@@ -6,10 +6,18 @@
     |
     +-----------------------------------------------------------------------------------------------
     */
-// função que retorna a quantidade de vogais da palavra passada.
+/**
+ * Função que retorna a quantidade de vogais de uma palavra informada
+ *
+ *
+ * @param word - A palavra que se deseja contar a quantidade de vogais
+ * @returns A quantidade de vogais de uma palavra informada
+ *
+ * @beta
+ */
 function getNumberOfVowels(word) {
-    let regexExpression = /[aeiouàáâãäåæçèéêëìíîïðòóôõöùúûüýÿ]/gi;
-    let vowelsFound = word.match(regexExpression);
+    let regexExpression = /[aeiouàáâãçèéêìíòóôõùú]/gi;
+    let vowelsFound = word.toLowerCase().match(regexExpression);
     return vowelsFound ? vowelsFound.length : 0;
 }
 /*
@@ -30,6 +38,16 @@ function getNumberOfVowels(word) {
     |
     +
     */
+/**
+*
+* Função que retorna a quantidade de vogais de uma palavra informada
+* em um formulário HTML
+*
+* @param   - sem parâmetros
+* @returns void - sem retorno
+*
+* @beta
+*/
 function showNumberOfWowels() {
     let inputWord = document.getElementById("inputPalavra");
     let numberOfVowels = getNumberOfVowels(inputWord.value);
@@ -77,7 +95,15 @@ class Person {
         this.bio = bio;
     }
 }
-// conversão de array para lista de objetos da classe Person
+/**
+ * Função para conversão de array para lista de objetos da classe Person
+ *
+ *
+ * @param array - array com os dados da lista
+ * @returns Array<Person> - Retorna um array de objetos do tipo Person
+ *
+ * @beta
+ */
 function convertArrayToList(array) {
     return array.map((obj) => new Person(obj.id, obj.name, obj.bio));
 }
@@ -95,6 +121,15 @@ let newList = convertArrayToList(lista);
     |
     +
     */
+/**
+ * Função para retornar a bio do id passado
+ * usando o paradigma funcional
+ *
+ * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+ * @returns string - retorna uma string referente a Bio desejada de acordo com o Id
+ *
+ * @beta
+ */
 function functionalGetBioById(id) {
     let person = newList.find((item) => item.id === id);
     return person ? person.bio : "";
@@ -106,6 +141,16 @@ function functionalGetBioById(id) {
     console.log(functionalGetBioById(1));
     console.log("- - -");
     */
+/**
+*
+* Função que executa os procedimentos referentes a [questão 2 - letra A] em um formulário HTML
+* O objetivo da função é retornar a bio do [id] passado na página HTML como saída
+*
+* @param   - sem parâmetros
+* @returns void - sem retorno, setado diretamente no componente HTML
+*
+* @beta
+*/
 function calculateTask2A() {
     let input = parseInt(document.getElementById("input-2-a").value);
     let result = functionalGetBioById(input);
@@ -122,6 +167,15 @@ function calculateTask2A() {
     |
     +
     */
+/**
+ * Função para retornar a [bio] do [id] passado
+ * usando o paradigma imperativo
+ *
+ * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @returns string - retorna uma string referente a [Bio] desejada de acordo com o [Id]
+ *
+ * @beta
+ */
 function imperativeGetBioById(id) {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
@@ -147,6 +201,15 @@ function imperativeGetBioById(id) {
     |
     +
     */
+/**
+ * Função para retornar o Name de acordo com o id passado
+ * usando o paradigma funcional
+ *
+ * @param id - item de nome id do tipo número contendo o id a ser pesquisado
+ * @returns string - retorna uma string referente o Name desejada de acordo com o Id
+ *
+ * @beta
+ */
 function functionalGetNameById(id) {
     let person = newList.find((item) => item.id === id);
     return person ? person.name : "";
@@ -157,6 +220,16 @@ function functionalGetNameById(id) {
     console.log(functionalGetNameById(1));
     console.log("- - -");
     */
+/**
+*
+* Função que executa os procedimentos referentes a [questão 2 - letra B] em um formulário HTML
+* O objetivo da função é retornar o [Name] do [Id] passado na página HTML como saída
+*
+* @param   - sem parâmetros
+* @returns void - sem retorno, setado diretamente no componente HTML
+*
+* @beta
+*/
 function calculateTask2B() {
     let input = parseInt(document.getElementById("input-2-b").value);
     let result = functionalGetNameById(input);
@@ -173,6 +246,15 @@ function calculateTask2B() {
     |
     +
     */
+/**
+ * Função para retornar o Name de acordo com o id passado
+ * usando o paradigma imperativo
+ *
+ * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @returns string - retorna uma string referente o [Name] desejada de acordo com o [Id]
+ *
+ * @beta
+ */
 function imperativeGetNameById(id) {
     let result = "";
     for (let i = 0; i < lista.length; i++) {
@@ -198,6 +280,15 @@ function imperativeGetNameById(id) {
     |
     +
     */
+/**
+ * Função para remover o registro da lista de acordo com o id passado
+ * usando o paradigma funcional
+ *
+ * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @returns string - retorna uma string referente ao resultado do processo de exclusão
+ *
+ * @beta
+ */
 function functionalDeleteItemById(id) {
     let index = newList.findIndex((item) => item.id === id);
     let result;
@@ -217,6 +308,16 @@ function functionalDeleteItemById(id) {
     console.table(newList);
     console.log("- - -");
     */
+/**
+*
+* Função que executa os procedimentos referentes a [questão 2 - letra C] em um formulário HTML
+* O objetivo da função é remover o registro da lista de acordo com o [id] passado via Input no HTML
+*
+* @param   - sem parâmetros
+* @returns void - sem retorno, setado diretamente no componente HTML
+*
+* @beta
+*/
 function calculateTask2C() {
     console.log("# inicio de execução de task 2 - c");
     let input = parseInt(document.getElementById("input-2-c").value);
@@ -236,6 +337,15 @@ function calculateTask2C() {
     |
     +
     */
+/**
+ * Função para remover o registro da lista de acordo com o id passado
+ * usando o paradigma imperativo
+ *
+ * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @returns void - a função não retorna resultado
+ *
+ * @beta
+ */
 function imperativeDeleteItemById(id) {
     for (let i = 0; i < newList.length; i++) {
         if (newList[i].id === id) {
@@ -260,6 +370,19 @@ function imperativeDeleteItemById(id) {
     |
     +
     */
+/**
+ * Função para psquisar o registro da lista de acordo com o id passado
+ * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
+ * usando o paradigma funcional
+ *
+ * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
+ * @param type - item de nome [type] do tipo string para se identificar o que mudará
+ *
+ * @returns string - a função retorna o resultado da execução para posterior validação
+ *
+ * @beta
+ */
 function functionalUpdateItemById(id, newContent, type) {
     let item = newList.find((item) => item.id === id);
     let result = "";
@@ -280,6 +403,16 @@ function functionalUpdateItemById(id, newContent, type) {
     console.table(newList);
     console.log("- - -");
     */
+/**
+*
+* Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
+* O objetivo da função pesquisar o [Id] passado via Input no HTML e alterar a [Bio] para o valor informado
+*
+* @param   - sem parâmetros
+* @returns void - sem retorno, setado diretamente no componente HTML
+*
+* @beta
+*/
 function calculateTask2DBio() {
     let inputId = parseInt(document.getElementById("input-2-d-id").value);
     let inputText = document.getElementById("input-2-d-text").value;
@@ -290,6 +423,16 @@ function calculateTask2DBio() {
         : (output = `A Bio referente ao ID informado como [${inputId}] foi alterada!`);
     document.getElementById("output-2-d").value = output;
 }
+/**
+*
+* Função que executa os procedimentos referentes a [questão 2 - letra D] em um formulário HTML
+* O objetivo da função pesquisar o [Id] passado via Input no HTML e alterar o [Name] para o valor informado
+*
+* @param   - sem parâmetros
+* @returns void - sem retorno, setado diretamente no componente HTML
+*
+* @beta
+*/
 function calculateTask2DName() {
     let inputId = parseInt(document.getElementById("input-2-d-id").value);
     let inputText = document.getElementById("input-2-d-text").value;
@@ -307,6 +450,19 @@ function calculateTask2DName() {
     |
     +
     */
+/**
+ * Função para psquisar o registro da lista de acordo com o id passado
+ * após a pesquisa realizar modificação no [Name] ou [Bio] de acordo com a necessidade
+ * usando o paradigma imperativo
+ *
+ * @param id - item de nome [id] do tipo número contendo o [id] a ser pesquisado
+ * @param newContent - item de nome [newContent] do tipo string com o novo valor para o campo
+ * @param type - item de nome [type] do tipo string para se identificar o que mudará
+ *
+ * @returns void - a função não retorna resultado
+ *
+ * @beta
+ */
 function imperativeUpdateItemById(id, newContent, type) {
     for (let i = 0; i < newList.length; i++) {
         if (newList[i].id === id) {
